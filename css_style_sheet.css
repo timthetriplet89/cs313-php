@@ -8,25 +8,18 @@ and open the template in the editor.
     Author     : Timothy
 */
 
-body {
-   
-   font-size: 15px;
-   font-family: "Verdana";
-   
+html {
+    height: 100%;
+    background: #C0C0C0;
 }
 
-#side_div {
-    color: black;
-    background-color: #3366ff;
-    position: relative;
-    width: 30%;
-    height: 100%;
-}
-
-#main_div {
-    color: black;
-    background-color: #66ff66;
-    position: relative;
-    width: 30%;
-    height: 100%;
-}
+ body {
+   min-height: 100%;
+   width: 1000px; 
+   margin: 20px auto;
+   padding: 20px;
+   font-size: 15px; 
+   font-family: "Verdana"; 
+   border: 1px solid black; 
+   background: #ff7272  }  
+ 
