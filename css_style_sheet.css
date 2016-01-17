@@ -9,18 +9,24 @@ and open the template in the editor.
 */
 
 body {
-   //
+   
    font-size: 40px;
    font-family: "Verdana";
    
 }
 
-#id_body_begin {
-    color: red;
-    background-color: white;
+#side_div {
+    color: black;
+    background-color: #3366ff;
+    position: absolute;
+    width: 30%;
+    height: 100%;
 }
 
-.id_end_body {
-    color: blue;
-    background-color: white;
+#main_div {
+    color: black;
+    background-color: #66ff66;
+    position: absolute;
+    width: 30%;
+    height: 100%;
 }
