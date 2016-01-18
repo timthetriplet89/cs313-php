@@ -7,33 +7,40 @@ and open the template in the editor.
 
 <html>
     <head>
-        <title>Tim - CS 313</title>
+        <title>Tim Steele - CS 313</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css_style_sheet.css">
+        <script>
+            function myFunction() {
+                //document.getElementById("body_element").getAttribute("background") = 
+                document.body.style.background = "#8CBCE2";
+            }
+        </script>
     </head>
-    <body>
+    <body id="index" class="body">
         
         <div id="center_div">
-            <h1>Welcome to my humble online home!</h1><br>
+            <h1>Welcome to my humble website home!</h1><br>
             
-            <img src="me.jpg" alt="Sometimes Shy..." style="width:480px;height:270px;"/>
+            <img src="me.jpg" alt="Sometimes Shy..." style="width:480px;height:270px;" />
             
             <p>My name is Timothy Steele, and I am a computer science major at BYU-Idaho.  
                 I enjoy problem-solving and learning new things.</p>
+            
             <p>My most recent project was to create an Android app for a small business consultant.
                By doing that, I learned how break down a project into small tasks, and 
                how to be resourceful to learn how to do new things and find answers to
                my problems.</p>
+            
             <p>I look forward to gaining more experience with web development on 
             the server side.  I like using technology, and I'm excited to become capable of creating it!</p>
             
-            <h2>Please see what I'm learning at my <a href="list_assignments.html">assignments page.</a></h2>
-            
+            <h2>Please see what I'm learning at my
+                <a href="list_assignments.html" 
+                 onmouseover="myFunction()"> assignments page.</a></h2>
             
         </div>
-
-  
         
     </body>
 </html>
