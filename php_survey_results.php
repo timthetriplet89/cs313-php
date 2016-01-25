@@ -40,8 +40,13 @@ if (!empty($_POST)) {
      
 <?php     
     // Read the survey results from the file and display them 
+if (filesize($resultsFile) != 0) {
 $resultsFile = nl2br(file_get_contents("results.txt", true)); 
 echo $resultsFile; 
+} else {
+    echo "<p>Noone has taken the survey yet.  Perhaps you should " . "<a href=\"survey.html\">start the bandwagon?</a>?</p>";
+}
+
 
 ?>
 
