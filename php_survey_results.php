@@ -11,6 +11,8 @@
       
 <!-- Write survey results to a file (results.txt) -->
 <!-- -------------------------------------------- -->
+<?php include 'pre_body.php'; ?>
+
 <?php 
 
 $resultsFile = fopen("results.txt","a+"); 
@@ -28,26 +30,15 @@ $resultsFile = fopen("results.txt","a+");
  
      fclose($resultsFile); ///////////////
 // Done writing survey results to a file (results.txt) -->
- 
-    // Read the survey results from the file 
-    // ini_set('auto_detect_line_endings', true);
-
-//// Write survey results to a file (results.txt) --> 
-//// -------------------------------------------- --> 
-      
-//// Try using a different function to get all of the contents of the file as a string.
-//// ------------------------------------------------------------------ --> 
+     
+    // Read the survey results from the file and display them
 $resultsFile = nl2br(file_get_contents("results.txt", true));
 echo $resultsFile;
 
 ?>
 
-        <p>Parking reserved.
-            <?php 
-            /*
-            echo "Survey results have been recorded in a safe space.  Your preferences are safely stored!"; 
-             */   ?> 
-        </p>
+<?php include 'post_body.php'; ?>
+
 
     </body>
 </html>
