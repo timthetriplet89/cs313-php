@@ -23,8 +23,15 @@ $resultsFile = fopen("results.txt","a+");
     // fclose($resultsFile); ///////////////
 // Done writing survey results to a file (results.txt) -->
 
+if (isset($_POST['food']))
+{
+    echo "<p>" . "submit has been registered by post" . "</p>";
+    
     // Read the survey results from the file 
-    $resultsFile = fopen("results.txt","r");    ///////////////
+    ini_set('auto_detect_line_endings', true);
+    $resultsFile = fopen("results.txt","r") or die("Unable to open file!");    ///////////////
+    $lines = count(file($resultsFile));
+    echo "line count of results file is: " . $lines;
     //if (filesize($resultsFile) > 0) { 
         
         fread($resultsFile,filesize("results.txt")); 
@@ -37,7 +44,7 @@ $resultsFile = fopen("results.txt","a+");
     //} else {
     //    echo "<br>No survey results have been recorded previously.<br>";
     //}
-    
+}    
 ?>
 
         <p>Parking reserved.
