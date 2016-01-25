@@ -5,7 +5,7 @@
       
 <!-- Write survey results to a file (results.txt) -->
 <?php 
-/*
+
 $resultsFile = fopen("results.txt","a+"); 
 
     $name = "Name: " . $_POST["name"] . "\r\n"; 
@@ -18,11 +18,12 @@ $resultsFile = fopen("results.txt","a+");
     $surveyText = $name . $food . $color . $book . $movie . $memories; 
 
     fwrite($resultsFile, $surveyText);
- * 
- */
-    // fclose($resultsFile); ///////////////
+ 
+ // Why isn't Git recognizing the file changed?
+     fclose($resultsFile); ///////////////
 // Done writing survey results to a file (results.txt) -->
 
+/*
 if (isset($_POST['food']))
 {
     echo "<p>" . "submit has been registered by post" . "</p>";
@@ -45,6 +46,8 @@ if (isset($_POST['food']))
     //    echo "<br>No survey results have been recorded previously.<br>";
     //}
 }    
+ * 
+ */
 ?>
 
         <p>Parking reserved.
