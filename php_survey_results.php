@@ -15,16 +15,16 @@
 
 <?php 
 
-if (!empty($_POST)) {
+if (!empty($_POST)) {  
     
-    $resultsFile = fopen("results.txt","w+");   //  a+  !!!
-
-    $name = "Name: " . $_POST["name"] . "\r\n"; 
+    $resultsFile = fopen("results.txt","w+");   //  a+  !!!  
+    
+    $name = "Name: " . $_POST["name"] . "\r\n";   
     $food = "Food preference: " . $_POST["food"] . "\r\n"; 
-    $color = "Color preference: " . $_POST["color"] . "\r\n"; 
-    $book = "Book preference: " . $_POST["book"] . "\r\n"; 
-    $movie = "Movie preference: " . $_POST["movie"] . "\r\n"; 
-    $memories = "Memories triggered: " . $_POST["memories"] . "\r\n \r\n"; 
+    $color = "Color preference: " . $_POST["color"] . "\r\n";  
+    $book = "Book preference: " . $_POST["book"] . "\r\n";   
+    $movie = "Movie preference: " . $_POST["movie"] . "\r\n";   
+    $memories = "Memories triggered: " . $_POST["memories"] . "\r\n \r\n";   
 
     $surveyText = $name . $food . $color . $book . $movie . $memories; 
 
@@ -41,14 +41,14 @@ if (!empty($_POST)) {
 <?php     
     // Read the survey results from the file and display them 
 
-//if (filesize($resultsFile) != 0) {
+if (filesize($resultsFile) != 0) {
  
 $resultsFile = nl2br(file_get_contents("results.txt", true)); 
  
 echo $resultsFile; 
-//} else {
-//    echo "<p>Noone has taken the survey yet.  Perhaps you should " . "<a href=\"survey.html\">start the bandwagon?</a>?</p>";
-//}
+} else {
+    echo "<p>Noone has taken the survey yet.  Perhaps you should " . "<a href=\"survey.html\">start the bandwagon?</a>?</p>";
+}
 
 
 ?>
