@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!--  By: Timothy Steele -->
 <!DOCTYPE html>
 <html>
@@ -19,11 +23,11 @@ if (!empty($_POST)) {
     
     $resultsFile = fopen("results.txt","a+");   //  a+  !!!  
     
-    $name = "Name: " . $_POST["name"] . "\r\n";   
+    $name = "Name: " . $_POST["name"] . "\r\n"; 
     $food = "Food preference: " . $_POST["food"] . "\r\n"; 
-    $color = "Color preference: " . $_POST["color"] . "\r\n";  
-    $book = "Book preference: " . $_POST["book"] . "\r\n";   
-    $movie = "Movie preference: " . $_POST["movie"] . "\r\n";   
+    $color = "Color preference: " . $_POST["color"] . "\r\n"; 
+    $book = "Book preference: " . $_POST["book"] . "\r\n";  
+    $movie = "Movie preference: " . $_POST["movie"] . "\r\n";     
     $memories = "Memories triggered: " . $_POST["memories"] . "\r\n \r\n";   
 
     $surveyText = $name . $food . $color . $book . $movie . $memories; 
@@ -31,6 +35,9 @@ if (!empty($_POST)) {
     fwrite($resultsFile, $surveyText); 
  
      fclose($resultsFile); 
+     
+     $_SESSION['has_taken_survey'] = true;
+         echo "<p>" . "You have already taken the survey";   // . "</p>" . "<p>You are not welcome here anymore</p>";
      } //
 // Done writing survey results to a file (results.txt) -->
 ?> 
