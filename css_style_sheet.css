@@ -20,16 +20,16 @@ body {
    padding: 20px; 
    font-size: 15px; 
    font-family: "Verdana"; 
-   border: 1px solid black;  
+   border: 1px solid black;
+   background: #8CBCE2;
 }    
  
 #index {
    background: #A3F5A3;     //  RED: #ff7272
 }
 
-#assignments {
-    background: #8CBCE2;
-}
+//#assignments {
+//}
 
 // Not currently in use
 #center_div {
