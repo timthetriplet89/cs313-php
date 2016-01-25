@@ -17,7 +17,7 @@
 
 if (!empty($_POST)) {  
     
-    $resultsFile = fopen("results.txt","w+");   //  a+  !!!  
+    $resultsFile = fopen("results.txt","a+");   //  a+  !!!  
     
     $name = "Name: " . $_POST["name"] . "\r\n";   
     $food = "Food preference: " . $_POST["food"] . "\r\n"; 
