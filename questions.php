@@ -21,15 +21,10 @@
         die();
     }
     
-    if (isset($_SESSION['has_taken_survey'])) {
+    if (isset($_SESSION['has_taken_survey'])) { 
         $survey_results_URL = 'http://php-steele2.rhcloud.com/php_survey_results.php';
         redirect($survey_results_URL);
-        //echo "<p>" . "You have taken the survey already" . "</p>";
-    } //else {
-      //  echo "<p>" . "You have NOT taken the survey already" . "</p>";
-    //}
-    
-    ?>       
+    } ?>       
     
     <p>Please help me get to know you better!</p>
 	<form action="php_survey_results.php" method="post">

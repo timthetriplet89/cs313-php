@@ -21,8 +21,7 @@
 
 if (!empty($_POST)) {  
     
-    $resultsFile = fopen("results.txt","a+");   //  a+  !!!  
-    
+    $resultsFile = fopen("results.txt","a+");  
     $name = "Name: " . $_POST["name"] . "\r\n"; 
     $food = "Food preference: " . $_POST["food"] . "\r\n"; 
     $color = "Color preference: " . $_POST["color"] . "\r\n"; 
@@ -36,9 +35,10 @@ if (!empty($_POST)) {
  
      fclose($resultsFile); 
      
-     $_SESSION['has_taken_survey'] = true;
-         echo "<p>" . "You have already taken the survey";   // . "</p>" . "<p>You are not welcome here anymore</p>";
-     } //
+     //For testing:
+     //$_SESSION['has_taken_survey'] = true;
+     //    echo "<p>" . "You have already taken the survey";   
+     //} 
 // Done writing survey results to a file (results.txt) -->
 ?> 
 
