@@ -15,7 +15,9 @@
 
 <?php 
 
-$resultsFile = fopen("results.txt","a+"); 
+if (!empty($_POST)) {
+    
+    $resultsFile = fopen("results.txt","a+"); 
 
     $name = "Name: " . $_POST["name"] . "\r\n"; 
     $food = "Food preference: " . $_POST["food"] . "\r\n"; 
@@ -28,12 +30,18 @@ $resultsFile = fopen("results.txt","a+");
 
     fwrite($resultsFile, $surveyText);
  
-     fclose($resultsFile); ///////////////
+     fclose($resultsFile); 
+     }
 // Done writing survey results to a file (results.txt) -->
+?>
+
+     <!-- Survey Results header  -->
+     <h1>Current Survey Results</h1>
      
-    // Read the survey results from the file and display them
-$resultsFile = nl2br(file_get_contents("results.txt", true));
-echo $resultsFile;
+<?php     
+    // Read the survey results from the file and display them 
+$resultsFile = nl2br(file_get_contents("results.txt", true)); 
+echo $resultsFile; 
 
 ?>
 
