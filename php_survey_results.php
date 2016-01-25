@@ -15,7 +15,7 @@
 
 <?php 
 
-if (!empty($_POST)) {
+//if (!empty($_POST)) {//
     
     $resultsFile = fopen("results.txt","a+"); 
 
@@ -31,7 +31,7 @@ if (!empty($_POST)) {
     fwrite($resultsFile, $surveyText);
  
      fclose($resultsFile); 
-     }
+     //}//
 // Done writing survey results to a file (results.txt) -->
 ?>
 
