@@ -1,12 +1,18 @@
 <!--  By: Timothy Steele -->
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Assign. 3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css_style_sheet.css">
+    </head>
     <body>
       
 <!-- Write survey results to a file (results.txt) -->
 <!-- -------------------------------------------- -->
 <?php 
-/*
+
 $resultsFile = fopen("results.txt","a+"); 
 
     $name = "Name: " . $_POST["name"] . "\r\n"; 
@@ -22,37 +28,13 @@ $resultsFile = fopen("results.txt","a+");
  
      fclose($resultsFile); ///////////////
 // Done writing survey results to a file (results.txt) -->
-
-
-if (isset($_POST['food']))
-{
-    echo "<p>" . "submit has been registered by post" . "</p>";
-    
+ 
     // Read the survey results from the file 
-    ini_set('auto_detect_line_endings', true);
- * 
- */
+    // ini_set('auto_detect_line_endings', true);
 
 //// Write survey results to a file (results.txt) --> 
 //// -------------------------------------------- --> 
-/* 
-    $resultsFile = fopen("results.txt","r") or die("Unable to open file!");     ///////////////
-    $lines = count(file($resultsFile)); 
-    echo "line count of results file is: " . $lines; 
-    //if (filesize($resultsFile) > 0) { 
-        
-        fread($resultsFile,filesize("results.txt")); 
-    
-        //while(!feof($resultsFile)) { 
-            echo fgets($resultsFile) . "<br>"; 
-        //} 
-        fclose($resultsFile); 
-*/        
-    //} else { 
-    //    echo "<br>No survey results have been recorded previously.<br>"; 
-    //} 
-//} 
-
+      
 //// Try using a different function to get all of the contents of the file as a string.
 //// ------------------------------------------------------------------ --> 
 $resultsFile = nl2br(file_get_contents("results.txt", true));

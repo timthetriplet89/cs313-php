@@ -13,19 +13,25 @@ html {
     background: #C0C0C0;
 }
 
-.body {
+body {
    min-height: 100%;
    width: 1000px; 
-   margin: 20px auto;
-   padding: 20px;
+   margin: 20px auto; 
+   padding: 20px; 
    font-size: 15px; 
    font-family: "Verdana"; 
-   border: 1px solid black;  }    
+   border: 1px solid black;  
+}    
  
 #index {
-   background: #A3F5A3; //  RED: #ff7272
+   background: #A3F5A3;     //  RED: #ff7272
 }
 
 #assignments {
     background: #8CBCE2;
+}
+
+// Not currently in use
+#center_div {
+    background: #000000;
 }
