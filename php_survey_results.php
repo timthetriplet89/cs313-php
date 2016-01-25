@@ -41,7 +41,7 @@ if (!empty($_POST)) {
 <?php     
     // Read the survey results from the file and display them 
 
-if (filesize($resultsFile) != 0) {
+if (filesize('results.txt') != 0) {
  
 $resultsFile = nl2br(file_get_contents("results.txt", true)); 
  
