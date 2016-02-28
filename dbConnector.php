@@ -20,7 +20,7 @@ function loadDatabase()
      else 
      { 
           // In the openshift environment
-          echo "Using openshift credentials: ";
+          //echo "Using openshift credentials: ";
 
           $dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST'); 
           $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT'); 
