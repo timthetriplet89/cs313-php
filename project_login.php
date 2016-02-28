@@ -29,9 +29,20 @@
     <!-- hard-code in the user we're logging in as (to start off with).
     Next step will be implementing the password logging in -->
     <?php
-    require("dbConnector.php"); 
+    // require("dbConnector.php"); 
+    // $db = loadDatabase();
+          // In the openshift environment
+          //echo "Using openshift credentials: ";
 
-    $db = loadDatabase();
+          $dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST'); 
+          $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT'); 
+          $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME'); 
+          $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD'); 
+  
+     //echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br >\n";
+
+     $db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+     $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
     // Next thing to test:
 //    $query = $db->prepare("SELECT * FROM connections WHERE agentID = 1");
