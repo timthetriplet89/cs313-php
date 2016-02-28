@@ -34,6 +34,7 @@
     $db = loadDatabase();
     
     // Next thing to test:
+//    $query = $db->prepare("SELECT * FROM connections WHERE agentID = 1");
     $query = $db->prepare("SELECT * FROM connections WHERE agentID = 1");
     $connections_1 = $query->execute();
     
