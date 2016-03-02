@@ -44,6 +44,7 @@
         while ($row = $users->fetch(PDO::FETCH_ASSOC))
         {	
             echo '<p>Reading a line in the returned table"';
+            echo '<p>' . $row['userID'] . ' - ' . $row['name'] . ' - ' . 'taglineID: ' . $row['taglineID'] . '</p>';  //  ' - ' . '\"' . $row[tagline] . '\"'
 //            echo '<p>';		
 //            echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';		
 //            echo $row['verse'] . '</strong>' . ' - ' . $row['content'];		
