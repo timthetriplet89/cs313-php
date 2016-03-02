@@ -31,28 +31,46 @@
     
     <?php
    
-    $agentID = 1;
-    
-$users = $db->prepare('SELECT * FROM connections AS c 
-	JOIN users AS u
-	ON c.recipientID = u.userID');
+    try {
 
-// WHERE agentID = 1  //  AND c.agentID = :agentID');
+        $users = $db->prepare('SELECT * FROM connections AS c' .
+                    ' JOIN users AS u' .
+                    ' ON c.recipientID = u.userID');
+        $users->execute();
 
-//$users->bindParam(':agentID', $agentID);    //    AND c.agentID = :agentID'
-    
-
-// while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
-//mysql_fetch_array($retval, MYSQL_ASSOC)
-
-while ($row = mysql_fetch_array($users, MYSQL_ASSOC)) {
-    echo "Name of connection: {$row['name']}  <br> ".
-         "Tagline ID: {$row['taglineID']}";
-}
-
-//foreach ($users->fetchAll() AS $user) {    //  Rename query to users
-//    echo $user["name"];
-//}
+        // Go through each result	
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        {	
+            echo '<p>Reading a line in the returned table"';
+//            echo '<p>';		
+//            echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';		
+//            echo $row['verse'] . '</strong>' . ' - ' . $row['content'];		
+//            echo '<br />';		
+//            echo 'Topics: ';
+//
+//            // get the topics now for this scripture
+//
+//            $stmtTopics = $db->prepare('SELECT name FROM topic t'
+//            . ' INNER JOIN scripture_topic st ON st.topicId = t.id'
+//            . ' WHERE st.scriptureId = :scriptureId');
+//
+//            $stmtTopics->bindParam(':scriptureId', $row['id']);
+//
+//            $stmtTopics->execute();
+//
+//            // Go through each topic in the result		
+//            while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
+//            {			
+//                echo $topicRow['name'] . ' ';		
+//            }
+//
+//            echo '</p>';
+        } 
+        
+    } catch (PDOException $ex) {
+        echo "Error with DB. Details: $ex";
+        die();
+    }
 
     ?>
     </body>
