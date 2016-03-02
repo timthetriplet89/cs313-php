@@ -41,7 +41,7 @@
         $users->execute();
 
         // Go through each result	
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        while ($row = $users->fetch(PDO::FETCH_ASSOC))
         {	
             echo '<p>Reading a line in the returned table"';
 //            echo '<p>';		
