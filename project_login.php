@@ -33,6 +33,8 @@
    
     try {
 
+        echo "<p>Inside the try statement...</p>";
+        
         $users = $db->prepare('SELECT * FROM connections AS c' .
                     ' JOIN users AS u' .
                     ' ON c.recipientID = u.userID');
