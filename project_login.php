@@ -45,32 +45,26 @@
 
         // Go through each result	
         while ($row = $users->fetch(PDO::FETCH_ASSOC))
-        {	
+        {	            
             echo '<p>Reading a line in the returned table"';
             echo '<p>' . $row['userID'] . ' - ' . $row['name'] . ' - ' . 'taglineID: ' . $row['taglineID'] . '</p>';  //  ' - ' . '\"' . $row[tagline] . '\"'
-//            echo '<p>';		
-//            echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';		
-//            echo $row['verse'] . '</strong>' . ' - ' . $row['content'];		
-//            echo '<br />';		
-//            echo 'Topics: ';
-//
-//            // get the topics now for this scripture
-//
-//            $stmtTopics = $db->prepare('SELECT name FROM topic t'
-//            . ' INNER JOIN scripture_topic st ON st.topicId = t.id'
-//            . ' WHERE st.scriptureId = :scriptureId');
-//
-//            $stmtTopics->bindParam(':scriptureId', $row['id']);
-//
-//            $stmtTopics->execute();
-//
-//            // Go through each topic in the result		
-//            while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
-//            {			
-//                echo $topicRow['name'] . ' ';		
-//            }
-//
-//            echo '</p>';
+            
+//            $tagline_quote = $db->prepare('SELECT text FROM quotes AS q' .
+//                    ' WHERE quoteID = ....... ')
+//            // Get the tagline for the user in this row
+//            echo 'tagline for this person is: ';
+           
+             // get the topics now for this scripture
+
+        $taglineInfo = $db->prepare('SELECT text, author FROM quotes WHERE quotes.quoteID = ' . $row['tagline']);
+        
+
+        // Go through each topic in the result		
+        while ($taglineRow = $taglineInfo->fetch(PDO::FETCH_ASSOC))
+        {			
+            echo $taglineRow['text'] . '<br>' . '  -' . $taglineRow['author'];		
+        }
+            
         } 
         
     } catch (PDOException $ex) {
