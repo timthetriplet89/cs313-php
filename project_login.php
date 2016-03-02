@@ -74,7 +74,7 @@ $users = $db->prepare('SELECT * FROM connections AS c
 
 $users->bindParam(':agentID', $agentID);
     
-foreach ($users->fetchAll AS $user) {    //  Rename query to users
+foreach ($users->fetchAll() AS $user) {    //  Rename query to users
     echo $user["name"];
 }
 
