@@ -37,7 +37,8 @@
         
         $users = $db->prepare('SELECT * FROM connections AS c' .
                     ' JOIN users AS u' .
-                    ' ON c.recipientID = u.userID');
+                    ' ON c.recipientID = u.userID' .
+                    ' WHERE agentID = 1');
         $users->execute();
 
         // Go through each result	
