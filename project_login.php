@@ -1,9 +1,9 @@
 <?php
     session_start();
     
-    require("dbConnector.php"); 
+    //require("dbConnector.php"); 
 
-    $db = loadDatabase(); 
+    //$db = loadDatabase(); 
     
     // For this assignment (week 5) we will demonstrate displaying data for one user,
     //  instead of processing the log-in information from the previous page.
@@ -42,7 +42,7 @@
      //echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br >\n";
 
      $db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-     $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+     // $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
     // Next thing to test:
 //    $query = $db->prepare("SELECT * FROM connections WHERE agentID = 1");
