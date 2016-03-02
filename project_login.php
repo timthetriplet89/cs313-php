@@ -30,21 +30,20 @@
     Next step will be implementing the password logging in -->
     
     <?php
-     
-    $query = $db->prepare("SELECT * FROM connections");
-    $query->execute();
    
     $agentID = 1;
     
 $users = $db->prepare('SELECT * FROM connections AS c 
 	JOIN users AS u
-	ON c.recipientID = u.userID 
-	AND c.agentID = :agentID');
+	ON c.recipientID = u.userID');
 
-$users->bindParam(':agentID', $agentID);
+// WHERE agentID = 1  //  AND c.agentID = :agentID');
+
+$users->bindParam(':agentID', $agentID);    //    AND c.agentID = :agentID'
     
-while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-    echo $row[name];
+while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
+    echo "Name of connection: {$row['name']}  <br> ".
+         "Tagline of connection: {$row['tagline']}"
 }
 
 //foreach ($users->fetchAll() AS $user) {    //  Rename query to users
