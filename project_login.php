@@ -1,7 +1,7 @@
 <?php
     session_start();
     
-    //require("dbConnector.php"); 
+    require("dbConnector.php"); 
 
     //$db = loadDatabase(); 
     
