@@ -39,7 +39,7 @@ $users = $db->prepare('SELECT * FROM connections AS c
 
 // WHERE agentID = 1  //  AND c.agentID = :agentID');
 
-$users->bindParam(':agentID', $agentID);    //    AND c.agentID = :agentID'
+//$users->bindParam(':agentID', $agentID);    //    AND c.agentID = :agentID'
     
 while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
     echo "Name of connection: {$row['name']}  <br> ".
