@@ -43,7 +43,7 @@ $users->bindParam(':agentID', $agentID);    //    AND c.agentID = :agentID'
     
 while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
     echo "Name of connection: {$row['name']}  <br> ".
-         "Tagline of connection: {$row['tagline']}"
+         "Tagline ID: {$row['taglineID']}"
 }
 
 //foreach ($users->fetchAll() AS $user) {    //  Rename query to users
