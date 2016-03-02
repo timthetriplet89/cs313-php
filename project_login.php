@@ -3,7 +3,7 @@
     
     require("dbConnector.php"); 
 
-    //$db = loadDatabase(); 
+    $db = loadDatabase(); 
     
     // For this assignment (week 5) we will demonstrate displaying data for one user,
     //  instead of processing the log-in information from the previous page.
