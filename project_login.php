@@ -34,23 +34,27 @@
           // In the openshift environment
           //echo "Using openshift credentials: ";
 
-          $dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST'); 
-          $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT'); 
-          $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME'); 
-          $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD'); 
-  
-     //echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br >\n";
-
-     $db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+//          $dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST'); 
+//          $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT'); 
+//          $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME'); 
+//          $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD'); 
+//  
+//     //echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br >\n";
+//
+//     $db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+     
      // $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
     // Next thing to test:
 //    $query = $db->prepare("SELECT * FROM connections WHERE agentID = 1");
      
-//    $query = $db->prepare("SELECT * FROM connections");
-//    $connections_1 = $query->execute();
+    $query = $db->prepare("SELECT * FROM connections");
+    $query->execute();
     
-    //$my_connections = $db->query
+    print_r($query->fetchAll());
+    
+    
+      //$my_connections = $db->query
         
 //   foreach ($my_connections as $connection) {     
 ////        $connection_recipientID = $db->query("SELECT recipientID");
