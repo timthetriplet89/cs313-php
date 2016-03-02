@@ -35,10 +35,12 @@
 
         echo "<p>Inside the try statement...</p>";
         
+        $agentID = 2;
+        
         $users = $db->prepare('SELECT * FROM connections AS c' .
                     ' JOIN users AS u' .
                     ' ON c.recipientID = u.userID' .
-                    ' WHERE agentID = 1');
+                    ' WHERE agentID = ' . $agentID);
         $users->execute();
 
         // Go through each result	
