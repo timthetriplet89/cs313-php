@@ -41,9 +41,13 @@ $users = $db->prepare('SELECT * FROM connections AS c
 
 //$users->bindParam(':agentID', $agentID);    //    AND c.agentID = :agentID'
     
-while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
+
+// while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
+//mysql_fetch_array($retval, MYSQL_ASSOC)
+
+while ($row = mysql_fetch_array($users, MYSQL_ASSOC)) {
     echo "Name of connection: {$row['name']}  <br> ".
-         "Tagline ID: {$row['taglineID']}"
+         "Tagline ID: {$row['taglineID']}";
 }
 
 //foreach ($users->fetchAll() AS $user) {    //  Rename query to users
