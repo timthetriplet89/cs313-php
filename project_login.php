@@ -56,9 +56,9 @@
            
              // get the topics now for this scripture
 
-        $taglineInfo = $db->prepare('SELECT text, author FROM quotes WHERE quotes.quoteID = ' . $row['tagline']);
+        $taglineInfo = $db->prepare('SELECT text, author FROM quotes WHERE quoteID = :taglineID');
         
-
+        $taglineInfo->bindParam(':taglineID', $row['taglineID']);
         // Go through each topic in the result		
         while ($taglineRow = $taglineInfo->fetch(PDO::FETCH_ASSOC))
         {			
