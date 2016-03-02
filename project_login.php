@@ -46,8 +46,9 @@
     
     // Next thing to test:
 //    $query = $db->prepare("SELECT * FROM connections WHERE agentID = 1");
-    $query = $db->prepare("SELECT * FROM connections");
-    $connections_1 = $query->execute();
+     
+//    $query = $db->prepare("SELECT * FROM connections");
+//    $connections_1 = $query->execute();
     
     //$my_connections = $db->query
         
