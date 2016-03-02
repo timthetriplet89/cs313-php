@@ -51,7 +51,7 @@
     $query = $db->prepare("SELECT * FROM connections");
     $query->execute();
     
-    print_r($query->fetchAll());
+    //print_r($query->fetchAll());
     
     
       //$my_connections = $db->query
@@ -64,6 +64,20 @@
 //HTML;
 //    }
     
+    $agentID = 1;
+    
+    
+$users = $db->prepare('SELECT * FROM connections AS c 
+	JOIN users AS u
+	ON c.recipientID = u.userID 
+	AND c.agentID = :agentID');
+
+$users->bindParam(':agentID', $agentID);
+    
+foreach ($users->fetchAll AS $user) {    //  Rename query to users
+    echo $user["name"];
+}
+
     ?>
     </body>
 </html>
