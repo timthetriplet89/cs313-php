@@ -1,6 +1,10 @@
 <?php
     session_start();
     
+    // First check to see if the username is set! ...  Add that check.
+    $_SESSION['username'] = $_POST['username'];
+    echo $_SESSION['username'];
+    
     require("dbConnector.php"); 
 
     $db = loadDatabase(); 
@@ -37,7 +41,7 @@
         
         $agentID = 1;
         
-        $users = $db->prepare('SELECT q.text, q.author' .
+        $users = $db->prepare('SELECT q.text, q.author, u.name' .
                               ' FROM connections AS c INNER JOIN users AS u' .
                               ' ON c.recipientID = u.userID' .
                               ' INNER JOIN quotes q' .
@@ -49,6 +53,7 @@
         while ($row = $users->fetch(PDO::FETCH_ASSOC))
         {	            
             echo '<p>Reading a line in the returned table';
+            echo '<p>' . $row['name'] . '</p>';
             echo '<p>' . $row['text'] . ' - ' . $row['author'];
         } 
         
