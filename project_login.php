@@ -25,33 +25,30 @@
     </head>
     
     <body>
-    
+   
+        <script>
+            function saveFriendValues(friendID, friendName) {
+                $_SESSION['friendID'] = friendID;
+                $_SESSION['friendName'] = friendName;
+            }
+        </script>
+        
     <?php
-    
-    
-    function writeMsg() {
-    echo "Hello world!";
-}
+        
+    try {
 
-    writeMsg(); // call the function
-    
-    
-    
-    
-//    try {
-//
-//        echo "<p>Inside the try statement...</p>";
-//        
-//        $agentID = 1;
-//        
-//        $users = $db->prepare('SELECT q.text, q.author, u.name' .
-//                              ' FROM connections AS c INNER JOIN users AS u' .
-//                              ' ON c.recipientID = u.userID' .
-//                              ' INNER JOIN quotes q' .
-//                              ' ON u.taglineID = q.quoteID' .
-//                    ' WHERE agentID = ' . $agentID);
-//        $users->execute();
-//        
+        echo "<p>Inside the try statement...</p>";
+        
+        $agentID = 1;
+        
+        $users = $db->prepare('SELECT q.text, q.author, u.name' .
+                              ' FROM connections AS c INNER JOIN users AS u' .
+                              ' ON c.recipientID = u.userID' .
+                              ' INNER JOIN quotes q' .
+                              ' ON u.taglineID = q.quoteID' .
+                    ' WHERE agentID = ' . $agentID);
+        $users->execute();
+        
 //        // Go through each result	
 //        while ($row = $users->fetch(PDO::FETCH_ASSOC))
 //        {
@@ -59,11 +56,16 @@
 //            echo '<p>' . $row['name'] . '</p>';
 //            echo '<p>' . $row['text'] . ' - ' . $row['author'];
 //        }
-//        
-//    } catch (PDOException $ex) {
-//        echo "Error with DB. Details: $ex";
-//        die();
-//    }
+        
+        while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
+            echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>';
+        }
+
+        
+    } catch (PDOException $ex) {
+        echo "Error with DB. Details: $ex";
+        die();
+    }
 
     ?>
     
