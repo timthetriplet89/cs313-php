@@ -30,6 +30,9 @@
             function saveFriendValues(friendID, friendName) {
                 $_SESSION['friendID'] = friendID;
                 $_SESSION['friendName'] = friendName;
+                
+                window.alert($_SESSION['friendName']);
+                window.alert($_SESSION['friendID']);
             }
         </script>
         
