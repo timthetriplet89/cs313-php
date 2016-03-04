@@ -31,8 +31,7 @@
                 $_SESSION['friendID'] = friendID;
                 $_SESSION['friendName'] = friendName;
                 
-                window.alert($_SESSION['friendName']);
-                window.alert($_SESSION['friendID']);
+                document.getElementById("tutorial").innerHTML = $_SESSION['friendName'];
             }
         </script>
         
@@ -61,7 +60,7 @@
 //        }
         
         while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
-            echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>';
+            echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>' . '<br>';
         }
 
         
@@ -73,7 +72,7 @@
     ?>
     
     <!--  ---------------------------------------------------------------  -->
-    
+    <div id="tutorial"></div>
 
     </body>
 </html>
