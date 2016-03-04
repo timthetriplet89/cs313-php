@@ -25,43 +25,50 @@
     </head>
     
     <body>
-        
-    <!--  Check to make sure the form was submitted
-          -- See "scripture_submit.php" from my team activity.
-          --  if (isset($_POST['book']) && isset($_POST['chapter']) && isset($_POST['verse']))   -->    
-    
-    <!-- hard-code in the user we're logging in as (to start off with).
-    Next step will be implementing the password logging in -->
     
     <?php
-   
-    try {
+    
+    
+    function writeMsg() {
+    echo "Hello world!";
+}
 
-        echo "<p>Inside the try statement...</p>";
-        
-        $agentID = 1;
-        
-        $users = $db->prepare('SELECT q.text, q.author, u.name' .
-                              ' FROM connections AS c INNER JOIN users AS u' .
-                              ' ON c.recipientID = u.userID' .
-                              ' INNER JOIN quotes q' .
-                              ' ON u.taglineID = q.quoteID' .
-                    ' WHERE agentID = ' . $agentID);
-        $users->execute();
-        
-        // Go through each result	
-        while ($row = $users->fetch(PDO::FETCH_ASSOC))
-        {	            
-            echo '<p>Reading a line in the returned table';
-            echo '<p>' . $row['name'] . '</p>';
-            echo '<p>' . $row['text'] . ' - ' . $row['author'];
-        } 
-        
-    } catch (PDOException $ex) {
-        echo "Error with DB. Details: $ex";
-        die();
-    }
+    writeMsg(); // call the function
+    
+    
+    
+    
+//    try {
+//
+//        echo "<p>Inside the try statement...</p>";
+//        
+//        $agentID = 1;
+//        
+//        $users = $db->prepare('SELECT q.text, q.author, u.name' .
+//                              ' FROM connections AS c INNER JOIN users AS u' .
+//                              ' ON c.recipientID = u.userID' .
+//                              ' INNER JOIN quotes q' .
+//                              ' ON u.taglineID = q.quoteID' .
+//                    ' WHERE agentID = ' . $agentID);
+//        $users->execute();
+//        
+//        // Go through each result	
+//        while ($row = $users->fetch(PDO::FETCH_ASSOC))
+//        {
+//            echo '<p>Reading a line in the returned table';
+//            echo '<p>' . $row['name'] . '</p>';
+//            echo '<p>' . $row['text'] . ' - ' . $row['author'];
+//        }
+//        
+//    } catch (PDOException $ex) {
+//        echo "Error with DB. Details: $ex";
+//        die();
+//    }
 
     ?>
+    
+    <!--  ---------------------------------------------------------------  -->
+    
+
     </body>
 </html>
