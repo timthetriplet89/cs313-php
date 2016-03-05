@@ -9,21 +9,87 @@
 
     $db = loadDatabase(); 
     
-    $queryStatement = "SELECT userID FROM users WHERE username = \"jensen\"";
-    $result = $db->query($queryStatement);
-    echo $result;
+    $queryForID = $db->prepare('SELECT userID FROM users WHERE username = \'' . $_SESSION['username'] . '\'');
+    $queryForID->execute();
     
-//    $queryForID = $db->prepare('SELECT userID FROM users WHERE username = jensen'); // \'' . $_SESSION['username'] . '\'');
-//    $queryForID->execute();
-//    
-//    $_SESSION['userID'] = $queryForID->fetch(PDO::FETCH_ASSOC);
-//    //echo $queryForID->fetch();
-//    if (isset($_SESSION['userID'])) {
-//        echo $_SESSION['userID'];
-//    } else {
-//        echo 'No session variable set for userID';
-//    }
+    $_SESSION['userID'] = $queryForID->fetch();
+    //echo $queryForID->fetch();
+    if (isset($_SESSION['userID'])) {
+        echo $_SESSION['userID'];
+    } else {
+        echo 'No session variable set for userID';
+    }
+    
+    
     
     // For this assignment (week 5) we will demonstrate displaying data for one user,
     //  instead of processing the log-in information from the previous page.
 ?>
+
+<!--  By: Timothy Steele -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assign. 3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css_style_sheet.css">
+    </head>
+    
+    <body>
+   
+    <?php
+    
+    function runMyFunction() {
+      echo 'I just ran a php function';
+    }
+
+    if (isset($_GET['userID'])) {
+       runMyFunction();
+    }
+        
+    try {
+
+        echo "<p>Inside the try statement...</p>";
+        
+        $agentID = 1;
+        
+        $users = $db->prepare('SELECT q.text, q.author, u.name' .
+                              ' FROM connections AS c INNER JOIN users AS u' .
+                              ' ON c.recipientID = u.userID' .
+                              ' INNER JOIN quotes q' .
+                              ' ON u.taglineID = q.quoteID' .
+                    ' WHERE agentID = ' . $agentID);
+        $users->execute();
+        
+        // Go through each result	
+        while ($row = $users->fetch(PDO::FETCH_ASSOC))
+        {
+            echo '<p>Reading a line in the returned table';
+            echo '<p>' . $row['name'] . '</p>';
+            echo '<p>' . $row['text'] . ' - ' . $row['author'];
+        }
+        
+//        while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
+//            echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>' . '<br>';
+//        
+//            //echo '<a href=\'project_list_quotes.php?username=' . $row['name'] . '&userID=' . $row['userID'] . '>' . $row['name'] . '</a>';
+//            
+//        }
+
+        // echo "<p>Call To Another PHP Script: <p>";
+        
+        // echo '<a href=\'project_login.php?userID=2>The 2nd person!</a>';
+        
+    } catch (PDOException $ex) {
+        echo "Error with DB. Details: $ex";
+        die();
+    }
+
+    ?>
+    
+    <!--  ---------------------------------------------------------------  -->
+    <a href=project_login.php?userID=2>The 2nd person!</a>
+
+    </body>
+</html>
