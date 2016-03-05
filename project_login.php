@@ -88,7 +88,7 @@
     ?>
     
     <!--  ---------------------------------------------------------------  -->
-    <a href=\'project_login.php?userID=2>The 2nd person!</a>
+    <a href=project_login.php?userID=2>The 2nd person!</a>
 
     </body>
 </html>
