@@ -9,16 +9,20 @@
 
     $db = loadDatabase(); 
     
-    $queryForID = $db->prepare('SELECT userID FROM users WHERE username = \'' . $_SESSION['username'] . '\'');
-    $queryForID->execute();
+    $queryStatement = "SELECT userID FROM users WHERE username = \'jensen\'";
+    $result = $db->query($queryStatement);
+    echo $result;
     
-    $_SESSION['userID'] = $queryForID->fetch(PDO::FETCH_ASSOC);
-    //echo $queryForID->fetch();
-    if (isset($_SESSION['userID'])) {
-        echo $_SESSION['userID'];
-    } else {
-        echo 'No session variable set for userID';
-    }
+//    $queryForID = $db->prepare('SELECT userID FROM users WHERE username = jensen'); // \'' . $_SESSION['username'] . '\'');
+//    $queryForID->execute();
+//    
+//    $_SESSION['userID'] = $queryForID->fetch(PDO::FETCH_ASSOC);
+//    //echo $queryForID->fetch();
+//    if (isset($_SESSION['userID'])) {
+//        echo $_SESSION['userID'];
+//    } else {
+//        echo 'No session variable set for userID';
+//    }
     
     // For this assignment (week 5) we will demonstrate displaying data for one user,
     //  instead of processing the log-in information from the previous page.
