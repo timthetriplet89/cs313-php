@@ -78,7 +78,7 @@
 
         echo "<p>Call To Another PHP Script: <p>";
         
-        echo '<a href=\'project_login.php?userID=2>The 2nd person!</a>';
+        // echo '<a href=\'project_login.php?userID=2>The 2nd person!</a>';
         
     } catch (PDOException $ex) {
         echo "Error with DB. Details: $ex";
@@ -88,7 +88,7 @@
     ?>
     
     <!--  ---------------------------------------------------------------  -->
-    <div id="tutorial"></div>
+    <a href=\'project_login.php?userID=2>The 2nd person!</a>
 
     </body>
 </html>
