@@ -12,9 +12,11 @@
     $queryForID = $db->prepare('SELECT userID FROM users WHERE username = \"jensen\"');
     $queryForID->execute();
     
-    $_SESSION['userID'] = $queryForID->fetch();
+    //$_SESSION['userID'] = $queryForID->fetch();
+    echo $queryForID->fetch();
+    //echo $_SESSION['userID'];
     
-    echo $_SESSION['userID'];
+    
     // For this assignment (week 5) we will demonstrate displaying data for one user,
     //  instead of processing the log-in information from the previous page.
     
