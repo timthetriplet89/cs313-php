@@ -13,7 +13,7 @@
     $queryForID->execute();
     
     //$_SESSION['userID'] = $queryForID->fetch();
-    echo $queryForID->fetch();
+    //echo $queryForID->fetch();
     //echo $_SESSION['userID'];
     
     
