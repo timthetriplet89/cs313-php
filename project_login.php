@@ -9,6 +9,12 @@
 
     $db = loadDatabase(); 
     
+    $queryForID = $db->prepare('SELECT userID FROM users WHERE username = \"jensen\"');
+    $queryForID->execute();
+    
+    $_SESSION['userID'] = $queryForID->fetch();
+    
+    echo $_SESSION['userID'];
     // For this assignment (week 5) we will demonstrate displaying data for one user,
     //  instead of processing the log-in information from the previous page.
     
@@ -26,19 +32,8 @@
     
     <body>
    
-        <script>
-            function saveFriendValues(friendID, friendName) {
-                $_SESSION['friendID'] = friendID;
-                $_SESSION['friendName'] = friendName;
-                
-                document.getElementById("tutorial").innerHTML = friendName;
-                // $_SESSION['friendName'];
-            }
-        </script>
-        
     <?php
     
-
     function runMyFunction() {
       echo 'I just ran a php function';
     }
