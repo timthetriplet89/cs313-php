@@ -3,14 +3,14 @@
     
     // First check to see if the username is set! ...  Add that check.
     $_SESSION['username'] = $_POST['username'];
-    echo $_SESSION['username'];
+    //echo $_SESSION['username'];
     
     require("dbConnector.php"); 
 
     $db = loadDatabase(); 
     
-    $queryForID = $db->prepare('SELECT userID FROM users WHERE username = \"jensen\"');
-    $queryForID->execute();
+    //$queryForID = $db->prepare('SELECT userID FROM users WHERE username = \"jensen\"');
+    //$queryForID->execute();
     
     //$_SESSION['userID'] = $queryForID->fetch();
     //echo $queryForID->fetch();
