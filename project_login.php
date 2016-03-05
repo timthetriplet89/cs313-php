@@ -9,7 +9,7 @@
 
     $db = loadDatabase(); 
     
-    $queryStatement = "SELECT userID FROM users WHERE username = \'jensen\'";
+    $queryStatement = "SELECT userID FROM users WHERE username = \"jensen\"";
     $result = $db->query($queryStatement);
     echo $result;
     
