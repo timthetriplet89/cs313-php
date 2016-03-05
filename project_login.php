@@ -12,7 +12,9 @@
     $queryForID = $db->prepare("SELECT userID FROM users WHERE username ='" . $_SESSION['username'] . "'");
     $queryForID->execute();
     
-    $_SESSION['userID'] = $queryForID->fetch();
+    $result = $queryForID->fetch();
+    $_SESSION['userID'] = $result['userID'];
+    
     //echo $queryForID->fetch();
     if (isset($_SESSION['userID'])) {
         echo $_SESSION['userID'];
