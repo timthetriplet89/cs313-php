@@ -9,7 +9,7 @@
 
     $db = loadDatabase(); 
     
-    $queryForID = $db->prepare('SELECT userID FROM users WHERE username = \'' . $_SESSION['username'] . '\'');
+    $queryForID = $db->prepare("SELECT userID FROM users WHERE username ='" . $_SESSION['username'] . "'");
     $queryForID->execute();
     
     $_SESSION['userID'] = $queryForID->fetch();
@@ -20,6 +20,7 @@
         echo 'No session variable set for userID';
     }
     
+    //  "SELECT * FROM toho_shows WHERE toho_shows.show ='". $show. "'"
     
     
     // For this assignment (week 5) we will demonstrate displaying data for one user,
