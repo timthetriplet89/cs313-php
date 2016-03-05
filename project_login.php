@@ -37,6 +37,15 @@
         </script>
         
     <?php
+    
+
+    function runMyFunction() {
+      echo 'I just ran a php function';
+    }
+
+    if (isset($_GET['userID'])) {
+       runMyFunction();
+    }
         
     try {
 
@@ -69,7 +78,7 @@
 
         echo "<p>Call To Another PHP Script: <p>";
         
-        echo '<a href=\'project_list_quotes.php?userID=2>The 2nd person!</a>';
+        echo '<a href=\'project_login.php?userID=2>The 2nd person!</a>';
         
     } catch (PDOException $ex) {
         echo "Error with DB. Details: $ex";
