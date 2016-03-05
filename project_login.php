@@ -31,7 +31,8 @@
                 $_SESSION['friendID'] = friendID;
                 $_SESSION['friendName'] = friendName;
                 
-                document.getElementById("tutorial").innerHTML = $_SESSION['friendName'];
+                document.getElementById("tutorial").innerHTML = friendName;
+                // $_SESSION['friendName'];
             }
         </script>
         
@@ -61,8 +62,14 @@
         
         while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
             echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>' . '<br>';
+        
+            //echo '<a href=\'project_list_quotes.php?username=' . $row['name'] . '&userID=' . $row['userID'] . '>' . $row['name'] . '</a>';
+            
         }
 
+        echo "<p>Call To Another PHP Script: <p>";
+        
+        echo '<a href=\'project_list_quotes.php?userID=2>The 2nd person!</a>';
         
     } catch (PDOException $ex) {
         echo "Error with DB. Details: $ex";

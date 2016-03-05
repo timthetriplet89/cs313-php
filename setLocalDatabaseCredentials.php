@@ -1,6 +1,6 @@
 <?php
-	$dbHost = 'localhost';
+	$dbHost = 'localhost';  
 	$dbUsername = 'root';
 	$password = '';
-	$dbname = 'cs313';
+	$dbname = 'local_php';
 ?>
