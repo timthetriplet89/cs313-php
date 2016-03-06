@@ -15,12 +15,11 @@
     $result = $queryForID->fetch();
     $_SESSION['userID'] = $result['userID'];
     
-    //echo $queryForID->fetch();
-    if (isset($_SESSION['userID'])) {
-        echo $_SESSION['userID'];
-    } else {
-        echo 'No session variable set for userID';
-    }
+//    if (isset($_SESSION['userID'])) {
+//        echo $_SESSION['userID'];
+//    } else {
+//        echo 'No session variable set for userID';
+//    }
     
     //  "SELECT * FROM toho_shows WHERE toho_shows.show ='". $show. "'"
     
@@ -50,7 +49,7 @@
     if (isset($_GET['userID'])) {
        runMyFunction();
     }
-        
+
     try {
 
         echo "<p>Inside the try statement...</p>";
@@ -66,19 +65,19 @@
         $users->execute();
         
         // Go through each result	
-        while ($row = $users->fetch(PDO::FETCH_ASSOC))
-        {
-            echo '<p>Reading a line in the returned table';
-            echo '<p>' . $row['name'] . '</p>';
-            echo '<p>' . $row['text'] . ' - ' . $row['author'];
-        }
-        
-//        while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
-//            echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>' . '<br>';
-//        
-//            //echo '<a href=\'project_list_quotes.php?username=' . $row['name'] . '&userID=' . $row['userID'] . '>' . $row['name'] . '</a>';
-//            
+//        while ($row = $users->fetch(PDO::FETCH_ASSOC))
+//        {
+//            echo '<p>Reading a line in the returned table';
+//            echo '<p>' . $row['name'] . '</p>';
+//            echo '<p>' . $row['text'] . ' - ' . $row['author'];
 //        }
+        
+        while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
+            //echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>' . '<br>';
+        
+            echo '<a href=\'project_list_quotes.php?username=' . $row['name'] . '&userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
+            
+        }
 
         // echo "<p>Call To Another PHP Script: <p>";
         
