@@ -78,7 +78,7 @@
          
             echo '<p>Reading a row:</p>';
     
-            echo '<a href=\'project_login_quotes.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
+            echo '<a href=\'project_list_quotes.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
         }
 
         // echo "<p>Call To Another PHP Script: <p>";
