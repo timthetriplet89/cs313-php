@@ -56,7 +56,7 @@
         
         $agentID = 1;
         
-        $users = $db->prepare('SELECT q.text, q.author, u.userID' .
+        $users = $db->prepare('SELECT q.text, q.author, u.userID, u.name' . 
                               ' FROM connections AS c INNER JOIN users AS u' .
                               ' ON c.recipientID = u.userID' .
                               ' INNER JOIN quotes q' .
@@ -75,9 +75,9 @@
 //        echo '<br><br>';
         
         while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
-            //echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>' . '<br>';
+         
             echo '<p>Reading a row:</p>';
-            //echo '<a href=\'project_list_quotes.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
+    
             echo '<a href=\'project_login.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
         }
 
