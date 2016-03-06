@@ -77,7 +77,8 @@
         while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
             //echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>' . '<br>';
             echo '<p>Reading a row:</p>';
-            echo '<a href=\'project_list_quotes.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
+            //echo '<a href=\'project_list_quotes.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
+            echo '<a href=\'project_login.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
         }
 
         // echo "<p>Call To Another PHP Script: <p>";
