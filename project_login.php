@@ -56,7 +56,7 @@
         
         $agentID = 1;
         
-        $users = $db->prepare('SELECT q.text, q.author, u.name' .
+        $users = $db->prepare('SELECT q.text, q.author, u.userID' .
                               ' FROM connections AS c INNER JOIN users AS u' .
                               ' ON c.recipientID = u.userID' .
                               ' INNER JOIN quotes q' .
@@ -75,12 +75,10 @@
         while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
             //echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>' . '<br>';
         
-            echo '<a href=\'project_list_quotes.php?username=' . $row['name'] . '&userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
-            
+            echo '<a href=\'project_list_quotes.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
         }
 
         // echo "<p>Call To Another PHP Script: <p>";
-        
         // echo '<a href=\'project_login.php?userID=2>The 2nd person!</a>';
         
     } catch (PDOException $ex) {

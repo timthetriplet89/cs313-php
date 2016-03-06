@@ -1,6 +1,17 @@
 <?php
 
-echo $_GET['userID'];
+
+
+  function runMyFunction() {
+    echo '<p>I just ran a php function</p>';
+    
+    echo $_GET['userID'];
+  }
+
+  if (isset($_GET['userID'])) {
+    runMyFunction();
+
+  }
 
 ?>
 
@@ -13,3 +24,4 @@ echo $_GET['userID'];
             if ($_GET['fn'] == "search")
      if (!empty($_GET['id']))
             search($id);-->
+
