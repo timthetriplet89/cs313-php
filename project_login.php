@@ -13,16 +13,10 @@
     $queryForID->execute();
     
     $result = $queryForID->fetch();
-    $_SESSION['userID'] = $result['userID'];
     
-//    if (isset($_SESSION['userID'])) {
-//        echo $_SESSION['userID'];
-//    } else {
-//        echo 'No session variable set for userID';
-//    }
-    
-    //  "SELECT * FROM toho_shows WHERE toho_shows.show ='". $show. "'"
-    
+    // Under test...
+   //['userID'] = $result['userID'];    
+    $_SESSION['agentID'] = $result['userID'];
     
     // For this assignment (week 5) we will demonstrate displaying data for one user,
     //  instead of processing the log-in information from the previous page.
@@ -41,48 +35,23 @@
     <body>
    
     <?php
-    
-    function runMyFunction() {
-      echo 'I just ran a php function';
-    }
-
-    if (isset($_GET['userID'])) {
-       runMyFunction();
-    }
 
     try {
 
         echo "<p>Inside the try statement...</p>";
-        
-        $agentID = 1;
         
         $users = $db->prepare('SELECT q.text, q.author, u.userID, u.name' . 
                               ' FROM connections AS c INNER JOIN users AS u' .
                               ' ON c.recipientID = u.userID' .
                               ' INNER JOIN quotes q' .
                               ' ON u.taglineID = q.quoteID' .
-                    ' WHERE agentID = ' . $agentID);
+                    ' WHERE agentID = ' . $_SESSION['agentID']); 
         $users->execute();
         
-        // Go through each result	
-//        while ($row = $users->fetch(PDO::FETCH_ASSOC))
-//        {
-//            echo '<p>Reading a line in the returned table';
-//            echo '<p>' . $row['name'] . '</p>';
-//            echo '<p>' . $row['text'] . ' - ' . $row['author'];
-//        }
-//        
-//        echo '<br><br>';
-        
         while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
-         
-            echo '<p>Reading a row:</p>';
-    
+            //echo '<p>Reading a row:</p>';
             echo '<a href=\'project_list_quotes.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
         }
-
-        // echo "<p>Call To Another PHP Script: <p>";
-        // echo '<a href=\'project_login.php?userID=2>The 2nd person!</a>';
         
     } catch (PDOException $ex) {
         echo "Error with DB. Details: $ex";
@@ -90,9 +59,6 @@
     }
 
     ?>
-    
-    <!--  ---------------------------------------------------------------  -->
-    <!--<a href=project_login.php?userID=2>The 2nd person!</a>-->
 
     </body>
 </html>
