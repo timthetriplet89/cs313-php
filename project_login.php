@@ -65,18 +65,20 @@
         $users->execute();
         
         // Go through each result	
-//        while ($row = $users->fetch(PDO::FETCH_ASSOC))
-//        {
-//            echo '<p>Reading a line in the returned table';
-//            echo '<p>' . $row['name'] . '</p>';
-//            echo '<p>' . $row['text'] . ' - ' . $row['author'];
-//        }
-        
-        while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
-            //echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>' . '<br>';
-        
-            echo '<a href=\'project_list_quotes.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
+        while ($row = $users->fetch(PDO::FETCH_ASSOC))
+        {
+            echo '<p>Reading a line in the returned table';
+            echo '<p>' . $row['name'] . '</p>';
+            echo '<p>' . $row['text'] . ' - ' . $row['author'];
         }
+        
+        echo '<br><br>';
+        
+//        while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
+//            //echo '<button onclick="saveFriendValues(' . $row['userID'] . ', ' . $row['name'] . ')">' . $row['name'] . '</button>' . '<br>';
+//        
+//            echo '<a href=\'project_list_quotes.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
+//        }
 
         // echo "<p>Call To Another PHP Script: <p>";
         // echo '<a href=\'project_login.php?userID=2>The 2nd person!</a>';
