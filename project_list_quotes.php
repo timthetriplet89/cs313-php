@@ -9,7 +9,7 @@
   }
 
   if (isset($_GET['userID'])) {
-    runMyFunction();
+    runMyFunction(); 
 
   }
 
