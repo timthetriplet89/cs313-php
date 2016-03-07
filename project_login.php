@@ -42,6 +42,7 @@
         
         while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
             echo '<a href=\'project_list_quotes.php?userID=' . $row['userID'] . '\'>' . $row['name'] . '</a><br>';
+            echo '   "' . $row['text'] . '"<br>      -' . $row['author'] . '<br><br>';
         }
         
     } catch (PDOException $ex) {
