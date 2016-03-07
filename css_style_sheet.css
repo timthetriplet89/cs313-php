@@ -45,3 +45,8 @@ button {
      border-bottom:1px solid #444; 
      cursor: pointer;
 }
+
+header {
+    font-weight: bold;
+    size: 200%;
+}
