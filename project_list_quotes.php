@@ -28,12 +28,12 @@
     } else {
         try {
             
-            $quotes = $db->prepare('SELECT q.text, q.author' .
-                    'FROM users AS u' .
-                    'INNER JOIN user_quote AS srqt' .
-                    'ON u.userID = srqt.userID' .
-                    'INNER JOIN quotes q' .
-                    'ON srqt.quoteID = q.quoteID' .
+            $quotes = $db->prepare('SELECT q.text, q.author ' .
+                    'FROM users AS u ' .
+                    'INNER JOIN user_quote AS srqt ' .
+                    'ON u.userID = srqt.userID ' .
+                    'INNER JOIN quotes q ' .
+                    'ON srqt.quoteID = q.quoteID ' .
                     'WHERE u.userID = ' . $_SESSION['user_connection']);
             
             $quotes->execute();
