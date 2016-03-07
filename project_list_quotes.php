@@ -10,9 +10,9 @@
     
         //$quotes = $db->prepare('SELECT q.text, q.author ' .  
     $connection_name = $db->prepare('SELECT name FROM users WHERE userID = ' . $_SESSION['user_connection']);  
- 
+    $connection_name->execute();
     //$row = $quotes->fetch(PDO::FETCH_ASSOC)  
-    $row = $connection_name->execute(); 
+    $row = $connection_name->fetch(PDO::FETCH_ASSOC);
     $_SESSION['connection_name'] = $row['name'];
     echo 'row [ \'name\' ] = ' . $row['name'];
 ?>
