@@ -33,8 +33,10 @@
                     'INNER JOIN user_quote AS srqt ' .
                     'ON u.userID = srqt.userID ' .
                     'INNER JOIN quotes q ' .
-                    'ON srqt.quoteID = q.quoteID ' .
-                    'WHERE u.userID = ' . $_SESSION['user_connection']);
+                    'ON srqt.quoteID = q.quoteID ' ); 
+                    //'ON srqt.quoteID = q.quoteID ' .                  
+                    //'WHERE u.userID = ' . $_SESSION['user_connection']);
+           
             
             $quotes->execute();
             while ($row = $quotes->fetch(PDO::FETCH_ASSOC)) {
