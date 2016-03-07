@@ -13,7 +13,8 @@
     $connection_name->execute();  
     //$row = $quotes->fetch(PDO::FETCH_ASSOC)  
     $row = $connection_name->execute(); 
-    $name = $row['name'];
+    $_SESSION['connection_name'] = $row['name'];
+    echo 'row [ \'name\' ] = ' . $row['name'];
 ?>
 
 <!--  By: Timothy Steele -->
@@ -27,7 +28,7 @@
     </head>
     <body>
         
-        <header>Quote Collection of <?php echo $name ?></header>
+        <header>Quote Collection of <?php echo $_SESSION['connection_name'] ?></header>
 
    <?php 
     if (!isset($_SESSION['user_connection'])) {
