@@ -8,6 +8,12 @@
     require("dbConnector.php"); 
     $db = loadDatabase(); 
     
+        //$quotes = $db->prepare('SELECT q.text, q.author ' .  
+    $connection_name = $db->prepare('SELECT name FROM users WHERE userID = ' . $_SESSION['user_connection']);  
+    $connection_name->execute();  
+    //$row = $quotes->fetch(PDO::FETCH_ASSOC)  
+    $row = $connection_name->execute(); 
+    $name = $row['name'];
 ?>
 
 <!--  By: Timothy Steele -->
@@ -19,8 +25,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css_style_sheet.css">
     </head>
-    
     <body>
+        
+        <header>Quote Collection of <?php echo $name ?></header>
 
    <?php 
     if (!isset($_SESSION['user_connection'])) {
@@ -33,11 +40,9 @@
                     'INNER JOIN user_quote AS srqt ' .
                     'ON u.userID = srqt.userID ' .
                     'INNER JOIN quotes q ' .
-                    'ON srqt.quoteID = q.quoteID ' ); 
-                    //'ON srqt.quoteID = q.quoteID ' .                  
-                    //'WHERE u.userID = ' . $_SESSION['user_connection']);
+                    'ON srqt.quoteID = q.quoteID ' .                  
+                    'WHERE u.userID = ' . $_SESSION['user_connection']);
            
-            
             $quotes->execute();
             while ($row = $quotes->fetch(PDO::FETCH_ASSOC)) {
                 echo '<p>"' . $row['text'] . '"   -' . $row['author'] . '</p>';

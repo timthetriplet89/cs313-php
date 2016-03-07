@@ -27,6 +27,8 @@
     </head>
     
     <body>
+        
+        <header>Connections</header>
    
     <?php
 
