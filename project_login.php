@@ -14,6 +14,7 @@
     
     $_SESSION['agentID'] = $result['userID'];
     $_SESSION['agentUserName'] = $result['name'];
+    $_SESSION['agentTaglineID'] = $result['taglineID'];
     
     $queryForUserTagline = $db->prepare("SELECT text, author FROM users AS u INNER JOIN quotes AS q ON u.taglineID = q.quoteID WHERE u.userID = " . $_SESSION['agentID']);
     $queryForUserTagline->execute();

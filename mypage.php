@@ -25,17 +25,19 @@
 <?php 
 
     try {
-        $quotesQuery = $db->prepare('SELECT text, author' . 
+        $quotesQuery = $db->prepare('SELECT text, author, quoteID' . 
                 ' FROM quotes AS q INNER JOIN user_quote AS srqt' . 
                 ' ON q.quoteID = srqt.quoteID' . 
-                ' WHERE srqt.userID = ' . $_SESSION['agentID']);
-        $quotesQuery->execute();
-        while ($row = $quotesQuery->fetch(PDO::FETCH_ASSOC)) {
-            echo '<p>"' . $row['text'] . '"   -' . $row['author'] . '</p>';
+                ' WHERE srqt.userID = ' . $_SESSION['agentID']); 
+        $quotesQuery->execute(); 
+        while ($row = $quotesQuery->fetch(PDO::FETCH_ASSOC)) { 
+            if ($row['quoteID'] != $_SESSION['agentTaglineID']) {
+                echo '<p>"' . $row['text'] . '"   -' . $row['author'] . '</p>';                 
+            }
         }
-        
-    } catch (Exception $ex) {
-        
+    } catch (PDOException $ex) {
+        echo "Error with DB. Details: $ex";
+        die();
     }
  
 ?>
