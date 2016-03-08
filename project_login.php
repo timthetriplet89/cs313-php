@@ -8,20 +8,26 @@
 
     $db = loadDatabase(); 
     
-    $queryForID = $db->prepare("SELECT userID, name FROM users WHERE username ='" . $_POST['username'] . "'");  // took out $_SESSION['username']
+    $queryForID = $db->prepare("SELECT userID, name, taglineID FROM users WHERE username ='" . $_POST['username'] . "'");  // took out $_SESSION['username']
     $queryForID->execute();
     $result = $queryForID->fetch();
     
     $_SESSION['agentID'] = $result['userID'];
-    //$_SESSION['agentUser'] 
-    $agentUserName = $result['name'];
+    $_SESSION['agentUserName'] = $result['name'];
+    
+    $queryForUserTagline = $db->prepare("SELECT text, author FROM users AS u INNER JOIN quotes AS q ON u.taglineID = q.quoteID WHERE u.userID = " . $_SESSION['agentID']);
+    $queryForUserTagline->execute();
+    $resultTagline = $queryForUserTagline->fetch(PDO::FETCH_ASSOC);
+    
+    $_SESSION['agentTaglineText'] = $resultTagline['text'];
+    $_SESSION['agentTaglineAuthor'] = $resultTagline['author'];
 ?>
 
 <!--  By: Timothy Steele -->
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Assign. 3</title>
+        <title>Connections</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css_style_sheet.css">
@@ -48,7 +54,7 @@
             echo '   "' . $row['text'] . '"<br>      -' . $row['author'] . '<br><br>';
         }
         
-        echo 'agentUserName = ' . $agentUserName . '<br>';
+        echo 'agentUserName = ' . $_SESSION['agentUserName'] . '<br>';
         
     } catch (PDOException $ex) {
         echo "Error with DB. Details: $ex";
@@ -57,7 +63,10 @@
 
     ?>
         
-        <a href="myPage.php"><?php echo $agentUserName?></a>
-
+        <div id="link_mypage">
+        <a href="mypage.php"><?php echo $_SESSION['agentUserName']?></a>
+        <p>   "<?php echo $_SESSION['agentTaglineText'] ?>"</p>
+        <p>      -<?php echo $_SESSION['agentTaglineAuthor'] ?></p>
+        </div>
     </body>
 </html>
