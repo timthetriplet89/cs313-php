@@ -25,7 +25,7 @@
 <?php 
 
     try {
-        $quotesQuery = $db->prepare('SELECT text, author, quoteID' . 
+        $quotesQuery = $db->prepare('SELECT q.text, q.author, q.quoteID' . 
                 ' FROM quotes AS q INNER JOIN user_quote AS srqt' . 
                 ' ON q.quoteID = srqt.quoteID' . 
                 ' WHERE srqt.userID = ' . $_SESSION['agentID']); 
