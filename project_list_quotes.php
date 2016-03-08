@@ -27,7 +27,7 @@
     </head>
     <body>
         
-        <header>Quote Collection of <?php echo $_SESSION['connection_name'] ?></header>
+        <header>Quote Collection of <?php echo $_SESSION['connection_name'] ?></header><br>
 
    <?php 
     if (!isset($_SESSION['user_connection'])) {

@@ -2,18 +2,19 @@
     session_start();
     
     // First check to see if the username is set! ...  Add that check.
-    $_SESSION['username'] = $_POST['username'];
+    //$_SESSION['username'] = $_POST['username'];
     
     require("dbConnector.php"); 
 
     $db = loadDatabase(); 
     
-    $queryForID = $db->prepare("SELECT userID FROM users WHERE username ='" . $_SESSION['username'] . "'");
+    $queryForID = $db->prepare("SELECT userID, name FROM users WHERE username ='" . $_POST['username'] . "'");  // took out $_SESSION['username']
     $queryForID->execute();
     $result = $queryForID->fetch();
     
     $_SESSION['agentID'] = $result['userID'];
-    
+    //$_SESSION['agentUser'] 
+    $agentUserName = $result['name'];
 ?>
 
 <!--  By: Timothy Steele -->
@@ -28,7 +29,7 @@
     
     <body>
         
-        <header>Connections</header>
+        <header>Connections</header><br>
    
     <?php
 
@@ -47,12 +48,16 @@
             echo '   "' . $row['text'] . '"<br>      -' . $row['author'] . '<br><br>';
         }
         
+        echo 'agentUserName = ' . $agentUserName . '<br>';
+        
     } catch (PDOException $ex) {
         echo "Error with DB. Details: $ex";
         die();
     }
 
     ?>
+        
+        <a href="myPage.php"><?php echo $agentUserName?></a>
 
     </body>
 </html>
