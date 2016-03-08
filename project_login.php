@@ -54,8 +54,6 @@
             echo '   "' . $row['text'] . '"<br>      -' . $row['author'] . '<br><br>';
         }
         
-        echo 'agentUserName = ' . $_SESSION['agentUserName'] . '<br>';
-        
     } catch (PDOException $ex) {
         echo "Error with DB. Details: $ex";
         die();
