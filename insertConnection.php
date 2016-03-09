@@ -18,7 +18,8 @@
         $query1->execute();
         $row = $query1->fetch(PDO::FETCH_ASSOC);
         $numUsername = $row['total'];
-        echo "numUsername: $numUsername<br>";
+        echo "numUsername: <br>";
+        echo "$numUsername";
     
         if ($numUsername == 1) {
             // Get the userID for the username to be added!  (See first part of login_page.php -- where I get logged in user's userID
