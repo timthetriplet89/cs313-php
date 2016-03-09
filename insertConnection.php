@@ -10,18 +10,21 @@
        
     try {
         
+        
         echo "before database connevction setup<br>";
         require("dbConnector.php");
         $db = loadDatabase();
         echo "after database connection setup<br>";
         
 //        // first check to see if this username is in the system!
-//        $query1 = $db->prepare('SELECT COUNT( * ) AS total FROM users WHERE username = \'' . $usernameToAdd . '\'');
+//        $query1 = $db->prepare('SELECT COUNT(*) AS total FROM users WHERE username = \'' . $usernameToAdd . '\'');
 //        $query1->execute();
 //        $row = $query1->fetch(PDO::FETCH_ASSOC);
 //        $numUsername = $row['total'];
 //        echo "numUsername: <br>";
 //        echo $numUsername;
+        
+        
         
 //$result = mysql_query("select count(*) from registeredUsers where email='{$_SESSION['username']}'");
 //// Verify it worked
@@ -35,7 +38,7 @@
 //$row = mysql_fetch_row($theResult);
 //echo 'number of rows = ' . $row . '<br>';
 
-        if ($numUsername == 1) {
+//        if ($numUsername == 1) {
             // Get the userID for the username to be added!  (See first part of login_page.php -- where I get logged in user's userID
             $query2 = $db->prepare('SELECT userID, name FROM users WHERE username =\'' . $usernameToAdd . '\'');  
             $query2->execute();
@@ -60,7 +63,7 @@
             echo '<a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . '</a> is now a connection.<br>';
             // Display tagline of user
             // echo '   "' . $row['text'] . '"<br>      -' . $row['author'] . '<br><br>';
-        }
+//        }
     }
     catch (Exception $ex)
 {
