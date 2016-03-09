@@ -54,8 +54,8 @@
 	die();
 }
 
-//header("Location: mypage.php");
-//die();
+header("Location: mypage.php");
+die();
 
 ?>
                 
