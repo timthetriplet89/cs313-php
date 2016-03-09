@@ -6,8 +6,11 @@
     
     if(isset($_POST['text']) & isset($_POST['author'])) {
         
-        echo $_POST['text'] . '<br>';
-        echo $_POST['author'] . '<br>';
+        //echo $_POST['text'] . '<br>';
+        //echo $_POST['author'] . '<br>';
+        
+//        $text = $_POST['text'];
+//        $author =  $_POST['author'];
         
         // Insert quote submitted by the user into the 'quotes' table
         $query = 'INSERT INTO quotes(text, author) VALUES (:text, :author)';
