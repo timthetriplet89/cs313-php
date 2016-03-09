@@ -1,10 +1,15 @@
 <?php
 
     session_start(); 
-    require("dbConnector.php"); 
-    $db = loadDatabase(); 
+
    
         //if(isset($_POST['text']) & isset($_POST['author'])) {
+    
+    try {
+        
+        require("dbConnector.php"); 
+        $db = loadDatabase(); 
+        
         $text = $_POST['quoteText'];
         $author =  $_POST['quoteAuthor'];  
         $agentID = $_SESSION['agentID'];
@@ -26,7 +31,14 @@
         $statement2->bindParam(':userID', $agentID);
         $statement2->bindParam(':quoteID', $quoteID);
         $statement2->execute();
-    
+    } 
+    catch (Exception $ex)
+{
+	// Please be aware that you don't want to output the Exception message in
+	// a production environment
+	echo "Error with DB. Details: $ex";
+	die();
+}
 ?>
 
 <!--  By: Timothy Steele -->
