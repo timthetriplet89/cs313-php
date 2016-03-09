@@ -9,8 +9,8 @@
         // Insert quote submitted by the user into the 'quotes' table
         $query = 'INSERT INTO quotes(text, author) VALUES (:text, :author)';
         $statement = $db->prepare($query);
-        $statement->bindParam(':text', $_GET['quoteText']);
-        $statement->bindParam(':author', $_GET['quoteAuthor']);
+        $statement->bindParam(':text', $_POST['quoteText']);
+        $statement->bindParam(':author', $_POST['quoteAuthor']);
         $statement->execute();
         $quoteID = $db->lastInsertId();
         
@@ -74,7 +74,7 @@
 ?>
         <div id="addNewQuote">
             <p>What words of wisdom have you discovered recently?</p>            
-            <form id="addQuote" action="<?PHP echo $_SERVER['PHP_SELF'];?>" method="POST">
+            <form id="addQuote" action="<?=$_SERVER['PHP_SELF'];?>" method="POST">  <!--  action="insertQuote.php"  action="< ? PHP echo $_SERVER['PHP_SELF']; ? >" -->
                 <label for="quoteText">Quote Text</label>
                 <textarea id="quoteText" name="quoteText" rows="4" cols="65"></textarea>
                 <input type="text" id="quoteAuthor" name="quoteAuthor"></input>
