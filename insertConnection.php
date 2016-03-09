@@ -23,13 +23,13 @@
         //echo "numUsername: <br>";
         //echo $numUsername;
     
-        if ($numUsername == 1) {
-            // Get the userID for the username to be added!  (See first part of login_page.php -- where I get logged in user's userID
-            $query2 = $db->prepare('SELECT userID, name FROM users WHERE username =\'' . $usernameToAdd . '\'');  
-            $query2->execute();
-            $row = $query2->fetch(PDO::FETCH_ASSOC);
-            $userID_ToAdd = $row['userID'];
-            $user_name_ToAdd = $row['name'];
+//        if ($numUsername == 1) {
+//            // Get the userID for the username to be added!  (See first part of login_page.php -- where I get logged in user's userID
+//            $query2 = $db->prepare('SELECT userID, name FROM users WHERE username =\'' . $usernameToAdd . '\'');  
+//            $query2->execute();
+//            $row = $query2->fetch(PDO::FETCH_ASSOC);
+//            $userID_ToAdd = $row['userID'];
+//            $user_name_ToAdd = $row['name'];
             
 //            // Insert a connection
 //            $query3 = 'INSERT INTO connections(agentID, recipientID) VALUES (:agentID, :recipientID)';
@@ -48,7 +48,7 @@
 //            echo '<a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . '</a> is now a connection.<br>';
 //            // Display tagline of user
 //            // echo '   "' . $row['text'] . '"<br>      -' . $row['author'] . '<br><br>';
-        }
+//        }
     }
     catch (Exception $ex)
 {
