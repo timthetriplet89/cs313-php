@@ -46,8 +46,7 @@
 //die();
 
 ?>
-                
-  By: Timothy Steele 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -61,7 +60,7 @@
         
         <header>Adding Connection</header><br>      
         
-        <?php echo '<a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . 'is now a connection.' . '</a><br>'; ?>
+        <?php echo '<a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . '</a> is now a connection.' . '<br>'; ?>
         
     </body>
 </html>
