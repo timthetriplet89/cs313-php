@@ -4,7 +4,7 @@
     require("dbConnector.php"); 
     $db = loadDatabase(); 
     
-    if(isset($_GET['text']) & isset($_GET['author'])) {
+    if(isset($_POST['text']) & isset($_POST['author'])) {
         
         // Insert quote submitted by the user into the 'quotes' table
         $query = 'INSERT INTO quotes(text, author) VALUES (:text, :author)';
