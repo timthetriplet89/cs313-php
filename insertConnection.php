@@ -11,10 +11,8 @@
     try {
         
         echo "before database connevction setup<br>";
-            
         require("dbConnector.php");
         $db = loadDatabase();
-        
         echo "after database connection setup<br>";
         
         // first check to see if this username is in the system!
