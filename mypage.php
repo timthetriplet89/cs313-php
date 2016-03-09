@@ -4,44 +4,6 @@
     require("dbConnector.php"); 
     $db = loadDatabase(); 
     
-    //if(isset($_POST['text']) & isset($_POST['author'])) {
-        
-        //echo $_POST['text'] . '<br>';
-        //echo $_POST['author'] . '<br>';
-        
-//        $text = $_POST['text'];
-//        $author =  $_POST['author'];
-        
-        // Insert quote submitted by the user into the 'quotes' table
-//        $query = 'INSERT INTO quotes(text, author) VALUES (:text, :author)';
-//        $statement = $db->prepare($query);
-//        $statement->bindParam(':text', $_POST['quoteText']);
-//        $statement->bindParam(':author', $_POST['quoteAuthor']);
-//        $statement->execute();
-//        $quoteID = $db->lastInsertId();
-//        
-//        // Connect the quote and the user in the user_quote table
-//        $query = 'INSERT INTO user_quote(userID, quoteID) VALUES (:userID, :quoteID)';
-//        $statement2 = $db->prepare($query);
-//        $statement2->bindParam(':userID', $_SESSION['agentID']);
-//        $statement2->bindParam(':quoteID', $quoteID);
-//        $statement2->execute();
-//        
-//        ////////////////////////////////////////////////////////////
-//        $query = 'INSERT INTO scripture(book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)';
-//
-//	$statement = $db->prepare($query);
-//
-//	$statement->bindParam(':book', $book);
-//	$statement->bindParam(':chapter', $chapter);
-//	$statement->bindParam(':verse', $verse);
-//	$statement->bindParam(':content', $content);
-//
-//	$statement->execute();
-//
-//	// get the new id
-//	$scriptureId = $db->lastInsertId();
-    //}
 ?>
 
 <!--  By: Timothy Steele -->
@@ -71,22 +33,32 @@
         while ($row = $quotesQuery->fetch(PDO::FETCH_ASSOC)) {
             if ($row['quoteID'] != $_SESSION['agentTaglineID']) {
                 echo '<p>"' . $row['text'] . '"   -' . $row['author'] . '</p>';                 
-            }
-        }
-    } catch (PDOException $ex) {
+            } 
+        } 
+    } catch (PDOException $ex) { 
         echo "Error with DB. Details: $ex";
         die();
     }
 ?>
         
-        <div id="addNewQuote">
+        <div id="addQ">
             <header>What words of wisdom have you discovered recently?</header><br>            
-            <form id="addQuote" action="insertQuote.php" method="POST">  <!--  action="insertQuote.php"  action="< ? PHP echo $_SERVER['PHP_SELF']; ? >"  action="< ? =$_SERVER['PHP_SELF'];?>" -->
+            <form id="addQuote" action="insertQuote.php" method="POST">  
                 <label for="quoteText">Quote Text</label><br>
                 <textarea id="quoteText" name="quoteText" rows="4" cols="65"></textarea><br><br>
                 <input type="text" id="quoteAuthor" name="quoteAuthor"></input><br>
                 <label for="quoteAuthor">Quote Author</label><br><br>
                 <input type="submit" value="Add to database" ></input>
+            </form>
+        </div>
+        
+        <br><br><br>
+        <div id="addC">
+            <header>Who Would You Like To Add?</header>
+            <form id="addConnection" action="insertConnection.php" method="POST">
+                <br><label for="enterUsername">Enter Username:</label><br>
+                <input type="text" id="enterUsername" name="enterUsername"></input><br>
+                <input type="submit" value="Add Connection"></input>
             </form>
         </div>
     </body>

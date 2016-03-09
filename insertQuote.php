@@ -1,8 +1,7 @@
 <?php
 
     session_start(); 
-
-   
+    
         //if(isset($_POST['text']) & isset($_POST['author'])) {
         $text = $_POST['quoteText'];
         $author =  $_POST['quoteAuthor'];  
@@ -30,7 +29,7 @@
         $statement2->bindParam(':userID', $agentID);
         $statement2->bindParam(':quoteID', $quoteID);
         $statement2->execute();
-    } 
+    }
     catch (Exception $ex)
 {
 	// Please be aware that you don't want to output the Exception message in
