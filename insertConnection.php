@@ -10,43 +10,9 @@
        
     try {
         
-        
-        echo "before database connevction setup<br>";
         require("dbConnector.php");
         $db = loadDatabase();
-        echo "after database connection setup<br>";
-        
-        // first check to see if this username is in the system!
-        $query1 = $db->prepare('SELECT COUNT(*) AS total FROM users WHERE username = \'' . $usernameToAdd . '\'');
-        $query1->execute();
-        $row = $query1->fetch(PDO::FETCH_ASSOC);
-        $numUsername = $row[0];   //   $row['total'];
-//        echo "numUsername: <br>";       //   
-//        echo $numUsername;              //   
-        
-//        $result = mysql_query("SELECT COUNT(*) FROM users WHERE username = '$usernameToAdd'") or die(mysql_error());  // AS total 
-//        $row = mysql_fetch_array($result);
-//        $total = $row[0]; //use alias
-        
-        echo "In php script, numUsername = $numUsername<br>";
-        
-//        $result = mysqli_query("SELECT count(*) FROM User_info");
-//        $row = mysqli_fetch_row($result);
-//        $num = $row[0];
-       
-//$result = mysql_query("select count(*) from registeredUsers where email='{$_SESSION['username']}'");
-//// Verify it worked
-//if (!$result) echo mysql_error();
-//$row = mysql_fetch_row($result);
-//// Should show you an integer result.
-//print_r($row);        
-//        
-//$theResult = mysql_query('SELECT COUNT( * ) AS total FROM users WHERE username = \'' . $usernameToAdd . '\'');    
-//if (!$theResult) echo mysql_error();
-//$row = mysql_fetch_row($theResult);
-//echo 'number of rows = ' . $row . '<br>';
 
-//        if ($numUsername == 1) {
             // Get the userID for the username to be added!  (See first part of login_page.php -- where I get logged in user's userID
             $query2 = $db->prepare('SELECT userID, name FROM users WHERE username =\'' . $usernameToAdd . '\'');  
             $query2->execute();
@@ -67,11 +33,6 @@
             $statement3->bindParam(':agentID', $userID_ToAdd);
             $statement3->bindParam(':recipientID', $agentID);
             $statement3->execute();
-            
-            echo '<br><br><a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . '</a> is now a connection.<br>';
-            // Display tagline of user
-            // echo '   "' . $row['text'] . '"<br>      -' . $row['author'] . '<br><br>';
-//        }
     }
     catch (Exception $ex)
 {
@@ -85,7 +46,7 @@
 //die();
 
 ?>
-<!--                
+                
   By: Timothy Steele 
 <!DOCTYPE html>
 <html>
@@ -98,7 +59,9 @@
     
     <body>
         
-        <header>Add Connection</header><br>      
-        <p>Total of rows = < ? php echo $total ?></p>
+        <header>Adding Connection</header><br>      
+        
+        <?php echo '<a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . 'is now a connection.' . '</a><br>'; ?>
+        
     </body>
-</html>-->
+</html>
