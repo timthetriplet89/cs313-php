@@ -79,6 +79,7 @@
                 <textarea id="quoteText" name="quoteText" rows="4" cols="65"></textarea>
                 <input type="text" id="quoteAuthor" name="quoteAuthor"></input>
                 <label for="quoteAuthor">Quote Author</label>
+                <input type="submit" value="Add to database" ></input>
             </form>
         </div>
     </body>
