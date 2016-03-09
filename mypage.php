@@ -74,7 +74,7 @@
 ?>
         <div id="addNewQuote">
             <p>What words of wisdom have you discovered recently?</p>            
-            <form id="addQuote" action="mypage.php" method="POST">
+            <form id="addQuote" action="<?=$_SERVER['PHP_SELF'];?>" method="POST">
                 <label for="quoteText">Quote Text</label>
                 <textarea id="quoteText" name="quoteText" rows="4" cols="65"></textarea>
                 <input type="text" id="quoteAuthor" name="quoteAuthor"></input>
