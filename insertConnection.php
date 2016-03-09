@@ -16,6 +16,16 @@
         $db = loadDatabase();
         echo "after database connection setup<br>";
         
+        $result = mysql_query("SELECT COUNT(*) FROM users WHERE username = '$usernameToAdd'") or die(mysql_error());  // AS total 
+        $row = mysql_fetch_array($result);
+        $total = $row[0]; //use alias
+        
+        echo "In php script, total = $total<br>";
+        
+//        $result = mysqli_query("SELECT count(*) FROM User_info");
+//        $row = mysqli_fetch_row($result);
+//        $num = $row[0];
+        
 //        // first check to see if this username is in the system!
 //        $query1 = $db->prepare('SELECT COUNT(*) AS total FROM users WHERE username = \'' . $usernameToAdd . '\'');
 //        $query1->execute();
@@ -77,5 +87,20 @@
 //die();
 
 ?>
-                
-                
+<!--                
+  By: Timothy Steele 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Connections</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css_style_sheet.css">
+    </head>
+    
+    <body>
+        
+        <header>Add Connection</header><br>      
+        <p>Total of rows = < ? php echo $total ?></p>
+    </body>
+</html>-->
