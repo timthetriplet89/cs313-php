@@ -18,13 +18,14 @@
         $query1->execute();
         $row = $query1->fetch(PDO::FETCH_ASSOC);
         $numUsername = $row['total'];
-//    
-//        if ($numUsername == 1) {
-//            // Get the userID for the username to be added!  (See first part of login_page.php -- where I get logged in user's userID
-//            $query2 = $db->prepare("SELECT userID FROM users WHERE username ='" . $usernameToAdd . "'");  
-//            $query2->execute();
-//            $userID_ToAdd = $query2->fetch(PDO::FETCH_ASSOC);
-//           
+        echo "numUsername: $numUsername<br>";
+    
+        if ($numUsername == 1) {
+            // Get the userID for the username to be added!  (See first part of login_page.php -- where I get logged in user's userID
+            $query2 = $db->prepare("SELECT userID FROM users WHERE username ='" . $usernameToAdd . "'");  
+            $query2->execute();
+            $userID_ToAdd = $query2->fetch(PDO::FETCH_ASSOC);
+           
 //            // Insert a connection
 //            $query3 = 'INSERT INTO connections(agentID, recipientID) VALUES (:agentID, :recipientID)';
 //            $statement3 = $db->prepare($query3);
@@ -38,7 +39,7 @@
 //            $statement3->bindParam(':agentID', $userID_ToAdd);
 //            $statement3->bindParam(':recipientID', $agentID);  
 //            $statement3->execute();
-//        }
+        }
     }
     catch (Exception $ex)
 {
