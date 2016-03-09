@@ -16,26 +16,24 @@
         $db = loadDatabase();
         echo "after database connection setup<br>";
         
-        $result = mysql_query("SELECT COUNT(*) FROM users WHERE username = '$usernameToAdd'") or die(mysql_error());  // AS total 
-        $row = mysql_fetch_array($result);
-        $total = $row[0]; //use alias
+        // first check to see if this username is in the system!
+        $query1 = $db->prepare('SELECT COUNT(*) AS total FROM users WHERE username = \'' . $usernameToAdd . '\'');
+        $query1->execute();
+        $row = $query1->fetch(PDO::FETCH_ASSOC);
+        $numUsername = $row[0];   //   $row['total'];
+//        echo "numUsername: <br>";       //   
+//        echo $numUsername;              //   
         
-        echo "In php script, total = $total<br>";
+//        $result = mysql_query("SELECT COUNT(*) FROM users WHERE username = '$usernameToAdd'") or die(mysql_error());  // AS total 
+//        $row = mysql_fetch_array($result);
+//        $total = $row[0]; //use alias
+        
+        echo "In php script, numUsername = $numUsername<br>";
         
 //        $result = mysqli_query("SELECT count(*) FROM User_info");
 //        $row = mysqli_fetch_row($result);
 //        $num = $row[0];
-        
-//        // first check to see if this username is in the system!
-//        $query1 = $db->prepare('SELECT COUNT(*) AS total FROM users WHERE username = \'' . $usernameToAdd . '\'');
-//        $query1->execute();
-//        $row = $query1->fetch(PDO::FETCH_ASSOC);
-//        $numUsername = $row['total'];
-//        echo "numUsername: <br>";
-//        echo $numUsername;
-        
-        
-        
+       
 //$result = mysql_query("select count(*) from registeredUsers where email='{$_SESSION['username']}'");
 //// Verify it worked
 //if (!$result) echo mysql_error();
@@ -70,7 +68,7 @@
             $statement3->bindParam(':recipientID', $agentID);
             $statement3->execute();
             
-            echo '<a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . '</a> is now a connection.<br>';
+            echo '<br><br><a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . '</a> is now a connection.<br>';
             // Display tagline of user
             // echo '   "' . $row['text'] . '"<br>      -' . $row['author'] . '<br><br>';
 //        }
