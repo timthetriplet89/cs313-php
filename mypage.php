@@ -78,13 +78,14 @@
         die();
     }
 ?>
+        
         <div id="addNewQuote">
-            <p>What words of wisdom have you discovered recently?</p>            
+            <header>What words of wisdom have you discovered recently?</header><br>            
             <form id="addQuote" action="insertQuote.php" method="POST">  <!--  action="insertQuote.php"  action="< ? PHP echo $_SERVER['PHP_SELF']; ? >"  action="< ? =$_SERVER['PHP_SELF'];?>" -->
-                <label for="quoteText">Quote Text</label>
-                <textarea id="quoteText" name="quoteText" rows="4" cols="65"></textarea>
-                <input type="text" id="quoteAuthor" name="quoteAuthor"></input>
-                <label for="quoteAuthor">Quote Author</label>
+                <label for="quoteText">Quote Text</label><br>
+                <textarea id="quoteText" name="quoteText" rows="4" cols="65"></textarea><br><br>
+                <input type="text" id="quoteAuthor" name="quoteAuthor"></input><br>
+                <label for="quoteAuthor">Quote Author</label><br><br>
                 <input type="submit" value="Add to database" ></input>
             </form>
         </div>
