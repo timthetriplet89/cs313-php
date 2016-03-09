@@ -15,14 +15,26 @@
         $db = loadDatabase();
         echo "after database connection setup<br>";
         
-        // first check to see if this username is in the system!
-        $query1 = 'SELECT COUNT( * ) AS total FROM users WHERE username = \'' . $usernameToAdd . '\'';
-        $query1->execute();
-        $row = $query1->fetch(PDO::FETCH_ASSOC);
-        $numUsername = $row['total'];
-        echo "numUsername: <br>";
-        echo $numUsername;
-    
+//        // first check to see if this username is in the system!
+//        $query1 = $db->prepare('SELECT COUNT( * ) AS total FROM users WHERE username = \'' . $usernameToAdd . '\'');
+//        $query1->execute();
+//        $row = $query1->fetch(PDO::FETCH_ASSOC);
+//        $numUsername = $row['total'];
+//        echo "numUsername: <br>";
+//        echo $numUsername;
+        
+//$result = mysql_query("select count(*) from registeredUsers where email='{$_SESSION['username']}'");
+//// Verify it worked
+//if (!$result) echo mysql_error();
+//$row = mysql_fetch_row($result);
+//// Should show you an integer result.
+//print_r($row);        
+//        
+//$theResult = mysql_query('SELECT COUNT( * ) AS total FROM users WHERE username = \'' . $usernameToAdd . '\'');    
+//if (!$theResult) echo mysql_error();
+//$row = mysql_fetch_row($theResult);
+//echo 'number of rows = ' . $row . '<br>';
+
         if ($numUsername == 1) {
             // Get the userID for the username to be added!  (See first part of login_page.php -- where I get logged in user's userID
             $query2 = $db->prepare('SELECT userID, name FROM users WHERE username =\'' . $usernameToAdd . '\'');  
