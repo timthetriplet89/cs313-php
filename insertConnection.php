@@ -3,7 +3,7 @@
     session_start();
     
         $usernameToAdd = $_POST['enterUsername'];
-        $agentID = $_SESSION['whatADay'];
+        $agentID = $_SESSION['agentID'];
        
     try {
         
