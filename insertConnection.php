@@ -1,7 +1,10 @@
 <?php
 
     session_start();
-        
+              
+    require("dbConnector.php");
+    $db = loadDatabase();
+    
     $usernameToAdd = $_POST['enterUsername'];
     $agentID = $_SESSION['agentID'];
     
@@ -9,9 +12,6 @@
        . "<p>agentID: $agentID</p>";
        
     try {
-              
-    require("dbConnector.php");
-    $db = loadDatabase();
         
         // first check to see if this username is in the system!
         $query1 = 'SELECT COUNT( * ) AS total FROM users WHERE username = ' . $usernameToAdd;
@@ -19,7 +19,7 @@
         $row = $query1->fetch(PDO::FETCH_ASSOC);
         $numUsername = $row['total'];
         echo "numUsername: <br>";
-        echo "$numUsername";
+        echo "$numUsername
     
         if ($numUsername == 1) {
             // Get the userID for the username to be added!  (See first part of login_page.php -- where I get logged in user's userID
