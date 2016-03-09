@@ -6,6 +6,9 @@
     
     if(isset($_POST['text']) & isset($_POST['author'])) {
         
+        echo $_POST['text'] . '<br>';
+        echo $_POST['author'] . '<br>';
+        
         // Insert quote submitted by the user into the 'quotes' table
         $query = 'INSERT INTO quotes(text, author) VALUES (:text, :author)';
         $statement = $db->prepare($query);
@@ -74,7 +77,7 @@
 ?>
         <div id="addNewQuote">
             <p>What words of wisdom have you discovered recently?</p>            
-            <form id="addQuote" action="<?=$_SERVER['PHP_SELF'];?>" method="POST">  <!--  action="insertQuote.php"  action="< ? PHP echo $_SERVER['PHP_SELF']; ? >" -->
+            <form id="addQuote" action="insertQuote.php" method="POST">  <!--  action="insertQuote.php"  action="< ? PHP echo $_SERVER['PHP_SELF']; ? >"  action="< ? =$_SERVER['PHP_SELF'];?>" -->
                 <label for="quoteText">Quote Text</label>
                 <textarea id="quoteText" name="quoteText" rows="4" cols="65"></textarea>
                 <input type="text" id="quoteAuthor" name="quoteAuthor"></input>
