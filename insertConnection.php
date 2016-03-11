@@ -58,7 +58,7 @@
     
     <body>
         
-        <header>Adding Connection</header><br>      
+        <header>New Connections</header><br>      
         
         <?php echo '<a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . '</a> is now a connection.' . '<br>'; ?>
         
