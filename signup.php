@@ -3,9 +3,9 @@
 	require_once("password.php");
 
 	if($_POST) { 
-		$user_create_query = $db->prepare("INSERT INTO users (username, password) VALUES (:username, :password)"); 
+		$user_create_query = $db->prepare("INSERT INTO users (name, taglineID, username, password) VALUES (1,\'no_name\', :username, :password)"); 
 		$user_create_query->bindParam(':username', $_POST['username']); 
-		$user_create_query->bindParam(':password', password_hash($_POST['password'], PASSWORD_DEFAULT)); 
+		$user_create_query->bindParam(':password', password_hash($_POST['password'], 'abc123')); 
 		$user_create_query->execute(); 
  
 		header("Location: signin.php"); 

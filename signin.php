@@ -14,8 +14,8 @@
 			$user = $user_query->fetch();
 
 			if (password_verify($_POST['password'], $user->password)) {
-				$_SESSION['user_id'] = $user->id;
-				// $_SESSION['username'] = $_POST['username']; 
+				$_SESSION['agentID'] = $user->id;
+				// $_SESSION['username'] = $_POST['username']; From team activity - don't think I'll need this
 				header("Location: mypage.php");
 			} else {
 				$message = "Problem logging in!";
