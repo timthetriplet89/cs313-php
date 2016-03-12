@@ -30,8 +30,9 @@
         $statement2->bindParam(':quoteID', $quoteID);
         $statement2->execute();
             
-            // DON'T FORGET - update the entry in the table, for 
-             
+        $agentID = $_SESSION['agentID'];
+        $statement3 = "UPDATE users SET taglineID = $quoteID WHERE userID = $agentID";
+        
             //header("Location: signin.php"); 
             //die(); 
             
