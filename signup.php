@@ -3,7 +3,7 @@
         $db = loadDatabase();         
 	require("password.php"); // require_once("password.php");        
         
-	if($_POST()) {
+	if($_POST) {
 //            $name = $_POST['_name'];
 //            $username = $_POST['username'];
 //            $password = password_hash($_POST['password']);
