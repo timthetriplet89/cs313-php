@@ -16,7 +16,7 @@
             $user_create_query->bindParam(':password', password_hash($_POST['password'], 'abc123')); 
             $user_create_query->execute();
             
-          header("Location: signin.php"); 
+          //header("Location: signin.php"); 
             //die();
             
 //////            // First, create a new user in the users table (with a name, username, and password)
