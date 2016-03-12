@@ -3,28 +3,29 @@
         $db = loadDatabase();         
 	require("password.php"); // require_once("password.php");        
         
-	if(isset($_POST['_name'])) {
-            $name = $_POST['_name'];
-            $username = $_POST['username'];
-            $password = password_hash($_POST['password']);
+	if($_POST()) {
+//            $name = $_POST['_name'];
+//            $username = $_POST['username'];
+//            $password = password_hash($_POST['password']);
             
-//            // First, create a new user in the users table (with a name, username, and password)
-//            //$user_create_query = $db->prepare("INSERT INTO users (name, taglineID, username, password) VALUES (:name, :taglineID, :username, :password)"); 
-//            $user_create_query = $db->prepare("INSERT INTO users (name, username, password) VALUES (:name, :username, :password)"); 
-//            $user_create_query->bindParam(':name', $name);  // $_POST['_name']);
-//            $user_create_query->bindParam(':username', $username); // $_POST['username']);   // Add the rest of the bindParam's !!!
-//            $user_create_query->bindParam(':password', $password);  // password_hash($_POST['password'], 'abc123')); 
-//            $user_create_query->execute();
-////          header("Location: signin.php"); 
-////            die();
+            // First, create a new user in the users table (with a name, username, and password)
+            //$user_create_query = $db->prepare("INSERT INTO users (name, taglineID, username, password) VALUES (:name, :taglineID, :username, :password)"); 
+            $user_create_query = $db->prepare("INSERT INTO users (name, username, password) VALUES (:name, :username, :password)"); 
+            $user_create_query->bindParam(':name', $_POST['_name']);
+            $user_create_query->bindParam(':username', $_POST['username']); 
+            $user_create_query->bindParam(':password', password_hash($_POST['password'], 'abc123')); 
+            $user_create_query->execute();
             
-////            // First, create a new user in the users table (with a name, username, and password)
-            $query = 'INSERT INTO users (name, username, password) VALUES (:name, :username, :password)';
-            $user_create_query = $db->prepare($query);
-//            $user_create_query->bindParam(':name', $name);  // $_POST['_name']);
-//            $user_create_query->bindParam(':username', $username); // $_POST['username']);   // Add the rest of the bindParam's !!!
-//            $user_create_query->bindParam(':password', $password);  // password_hash($_POST['password'], 'abc123')); 
-//            $user_create_query->execute();            
+          header("Location: signin.php"); 
+            die();
+            
+//////            // First, create a new user in the users table (with a name, username, and password)
+//            $query = 'INSERT INTO users (name, username, password) VALUES (:name, :username, :password)';
+//            $user_create_query = $db->prepare($query);
+////            $user_create_query->bindParam(':name', $name);  // $_POST['_name']);
+////            $user_create_query->bindParam(':username', $username); // $_POST['username']);   // Add the rest of the bindParam's !!!
+////            $user_create_query->bindParam(':password', $password);  // password_hash($_POST['password'], 'abc123')); 
+////            $user_create_query->execute();            
             
 	} 
 ?>
