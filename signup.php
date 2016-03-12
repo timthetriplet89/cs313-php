@@ -1,7 +1,7 @@
 <?php
-	require("dbConnector.php");  //  require_once("dbConnector.php")
+	require_once("dbConnector.php");  //  require_once("dbConnector.php")
         $db = loadDatabase();         
-	require("password.php"); // require_once("password.php");        
+	require_once("password.php"); // require_once("password.php");        
         
 	if($_POST) {
 //            $name = '\'' . $_POST['_name'] . '\'';
