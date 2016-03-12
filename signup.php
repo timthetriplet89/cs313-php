@@ -24,14 +24,16 @@
         $quoteID = $db->lastInsertId();
         
         // Connect the quote and the user in the user_quote table
-        $query = 'INSERT INTO user_quote(userID, quoteID) VALUES (:userID, :quoteID)';
-        $statement2 = $db->prepare($query);
+        $query2 = 'INSERT INTO user_quote(userID, quoteID) VALUES (:userID, :quoteID)';
+        $statement2 = $db->prepare($query2);
         $statement2->bindParam(':userID', $_SESSION['agentID']);
         $statement2->bindParam(':quoteID', $quoteID);
         $statement2->execute();
-            
+        
         $agentID = $_SESSION['agentID'];
-        $statement3 = "UPDATE users SET taglineID = $quoteID WHERE userID = $agentID";
+        $query3 = "UPDATE users SET taglineID = $quoteID WHERE userID = $agentID";
+        $statement3 = $db->prepare($query3);
+        $statement3->execute();
         
             //header("Location: signin.php"); 
             //die(); 
