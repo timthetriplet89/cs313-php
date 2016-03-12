@@ -18,8 +18,8 @@
 ////            die();
             
 ////            // First, create a new user in the users table (with a name, username, and password)
-//            $query = 'INSERT INTO users (name, username, password) VALUES (:name, :username, :password)';
-//            $user_create_query = $db->prepare($query);
+            $query = 'INSERT INTO users (name, username, password) VALUES (:name, :username, :password)';
+            $user_create_query = $db->prepare($query);
 //            $user_create_query->bindParam(':name', $name);  // $_POST['_name']);
 //            $user_create_query->bindParam(':username', $username); // $_POST['username']);   // Add the rest of the bindParam's !!!
 //            $user_create_query->bindParam(':password', $password);  // password_hash($_POST['password'], 'abc123')); 
