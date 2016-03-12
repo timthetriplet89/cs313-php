@@ -1,37 +1,45 @@
-<?php
-	require_once("dbConnector.php");  //  require_once("dbConnector.php")
+<?php 
+	require_once("dbConnector.php");  //  require_once("dbConnector.php")   
         $db = loadDatabase();         
-	require_once("password.php"); // require_once("password.php");        
+	require_once("password.php"); // require_once("password.php");          
         
-	if($_POST) {
-//            $name = '\'' . $_POST['_name'] . '\'';
-//            $username = '\'' . $_POST['username'] . '\'';
-//            $password = password_hash($_POST['password'], 'abc123');
-//            
-//            // First, create a new user in the users table (with a name, username, and password)
-//            //$user_create_query = $db->prepare("INSERT INTO users (name, taglineID, username, password) VALUES (:name, :taglineID, :username, :password)"); 
+	if($_POST) { 
+            
+            // First, create a new user in the users table (with a name, username, and password) 
+            //$user_create_query = $db->prepare("INSERT INTO users (name, taglineID, username, password) VALUES (:name, :taglineID, :username, :password)"); 
             $user_create_query = $db->prepare("INSERT INTO users (name, username, password) VALUES (:name, :username, :password)"); 
             $user_create_query->bindParam(':name', $_POST['_name']); 
             $user_create_query->bindParam(':username', $_POST['username']);  
             $user_create_query->bindParam(':password', password_hash($_POST['password'], PASSWORD_DEFAULT));  
             $user_create_query->execute(); 
             
-          //header("Location: signin.php"); 
-            //die();
+            $_SESSION['agentID'] = $db->lastInsertId();
             
-//////            // First, create a new user in the users table (with a name, username, and password)
-//            $query = 'INSERT INTO users (name, username, password) VALUES (:name, :username, :password)';
-//            $user_create_query = $db->prepare($query);
-////            $user_create_query->bindParam(':name', $name);  // $_POST['_name']);
-////            $user_create_query->bindParam(':username', $username); // $_POST['username']);   // Add the rest of the bindParam's !!!
-////            $user_create_query->bindParam(':password', $password);  // password_hash($_POST['password'], 'abc123')); 
-////            $user_create_query->execute();            
+        // Insert quote submitted by the user on the sign-up page into the 'quotes' table
+        $query = 'INSERT INTO quotes(text, author) VALUES (:text, :author)';
+        $statement = $db->prepare($query);
+        $statement->bindParam(':text', $_POST['_text']);
+        $statement->bindParam(':author', $_POST['_author']);
+        $statement->execute();
+        $quoteID = $db->lastInsertId();
+        
+        // Connect the quote and the user in the user_quote table
+        $query = 'INSERT INTO user_quote(userID, quoteID) VALUES (:userID, :quoteID)';
+        $statement2 = $db->prepare($query);
+        $statement2->bindParam(':userID', $_SESSION['agentID']);
+        $statement2->bindParam(':quoteID', $quoteID);
+        $statement2->execute();
+            
+            // DON'T FORGET - update the entry in the table, for 
+             
+            //header("Location: signin.php"); 
+            //die(); 
             
 	} 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
+?> 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
 	<title>Sign Up</title>
 	<meta charset="utf-8">
 </head>
