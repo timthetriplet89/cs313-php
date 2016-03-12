@@ -14,7 +14,7 @@
             $user_create_query->bindParam(':name', $name); // $_POST['_name']); 
             $user_create_query->bindParam(':username', $username); // $_POST['username']);  
             $user_create_query->bindParam(':password', $password); // password_hash($_POST['password'], 'abc123'));  
-//            $user_create_query->execute(); 
+            $user_create_query->execute(); 
             
           //header("Location: signin.php"); 
             //die();
