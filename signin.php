@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	require_once("dbConnector.php");
+        $db = loadDatabase();         
 	require_once("password.php");
 
 	$message = '';
