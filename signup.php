@@ -17,7 +17,7 @@
             $user_create_query->execute();
             
           header("Location: signin.php"); 
-            die();
+            //die();
             
 //////            // First, create a new user in the users table (with a name, username, and password)
 //            $query = 'INSERT INTO users (name, username, password) VALUES (:name, :username, :password)';
