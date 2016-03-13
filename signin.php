@@ -13,9 +13,8 @@
 ***********************************************************/
 
 require("password.php"); // used for password hashing.
-
-         
 session_start();
+
 $badLogin = false;
 
 // First check to see if we have post variables, if not, just
@@ -39,6 +38,8 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 
 		$result = $statement->execute();
 
+                echo 'result = ' . $result . '<br>';
+                
 		if ($result)
 		{
 		    $row = $statement->fetch();
