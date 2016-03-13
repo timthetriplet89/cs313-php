@@ -3,7 +3,7 @@
         $db = loadDatabase();         
 	require_once("password.php"); // require_once("password.php");          
         
-	if($_POST) { 
+	if($_POST) {
             
             // First, create a new user in the users table (with a name, username, and password) 
             //$user_create_query = $db->prepare("INSERT INTO users (name, taglineID, username, password) VALUES (:name, :taglineID, :username, :password)"); 
@@ -35,8 +35,8 @@
         $statement3 = $db->prepare($query3);
         $statement3->execute();
         
-            //header("Location: signin.php"); 
-            //die(); 
+            header("Location: signin.php"); 
+            die(); 
             
 	} 
 ?> 
