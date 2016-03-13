@@ -43,7 +43,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 		{
 		    $row = $statement->fetch();
                     $hashedPasswordFromDB = $row['password'];
-
+                    echo '<br>' . $hashedPasswordFromDB . '<br>';
                     // now check to see if the hashed password matches
                     if (password_verify($password, $hashedPasswordFromDB))
                     {
