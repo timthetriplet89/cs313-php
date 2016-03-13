@@ -3,14 +3,18 @@
         $db = loadDatabase();         
 	require_once("password.php"); // require_once("password.php");          
         
+        $username = $_POST['username'];
+        $name = $_POST['_name'];
+        $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        
 	if($_POST) {
             
             // First, create a new user in the users table (with a name, username, and password) 
             //$user_create_query = $db->prepare("INSERT INTO users (name, taglineID, username, password) VALUES (:name, :taglineID, :username, :password)"); 
             $user_create_query = $db->prepare("INSERT INTO users (name, username, password) VALUES (:name, :username, :password)"); 
-            $user_create_query->bindParam(':name', $_POST['_name']); 
-            $user_create_query->bindParam(':username', $_POST['username']);  
-            $user_create_query->bindParam(':password', password_hash($_POST['password'], PASSWORD_DEFAULT));  
+            $user_create_query->bindParam(':name', $name); 
+            $user_create_query->bindParam(':username', $username);  
+            $user_create_query->bindParam(':password', $hashedPassword);  
             $user_create_query->execute(); 
             
             $_SESSION['agentID'] = $db->lastInsertId();
