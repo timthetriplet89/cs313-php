@@ -13,9 +13,8 @@
 ***********************************************************/
 
 require("password.php"); // used for password hashing.
-
-         
 session_start();
+
 $badLogin = false;
 
 // First check to see if we have post variables, if not, just
@@ -27,12 +26,22 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 	$username = $_POST['txtUser'];
 	$password = $_POST['txtPassword'];
 
+	// Get the hashed password from the DB
+	// It would be better to store these in a different file
+	$dbUser = 'ta6user';
+	$dbPass = 'ta6pass';
+	$dbName = 'LoginTest';
+	$dbHost = '127.0.0.1'; // for my configuration, I need this rather than 'localhost'
+
 	try
 	{
-            require("dbConnector.php");
-		$db = loadDatabase();
+		// Create the PDO connection
+		$db = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
 
-		$query = 'SELECT password, userID FROM users WHERE username=:username';
+		// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
+		$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+
+		$query = 'SELECT password FROM login WHERE username=:username';
 
 		$statement = $db->prepare($query);
 		$statement->bindParam(':username', $username);
@@ -41,21 +50,22 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 
 		if ($result)
 		{
-		    $row = $statement->fetch();
-                    $hashedPasswordFromDB = $row['password'];
+			$row = $statement->fetch();
+			$hashedPasswordFromDB = $row['password'];
 
-                    // now check to see if the hashed password matches
-                    if (password_verify($password, $hashedPasswordFromDB))
-                    {
-			// password was correct, put the user on the session, and redirect to home
-			$_SESSION['agentID'] = $row['userID'];
-			header("Location: mypage.php");
-			die(); // we always include a die after redirects.
-                    }
-                    else
-                    {
-                    	$badLogin = true;
-                    }
+			// now check to see if the hashed password matches
+			if (password_verify($password, $hashedPasswordFromDB))
+			{
+				// password was correct, put the user on the session, and redirect to home
+				$_SESSION['username'] = $username;
+				header("Location: home.php");
+				die(); // we always include a die after redirects.
+			}
+			else
+			{
+				$badLogin = true;
+			}
+
 		}
 		else
 		{
@@ -92,7 +102,7 @@ if ($badLogin)
 
 <h1>Please sign in below:</h1>
 
-<form id="mainForm" action="signin.php" method="POST">
+<form id="mainForm" action="signIn.php" method="POST">
 
 	<input type="text" id="txtUser" name="txtUser"></input>
 	<label for="txtUser">Username</label>
