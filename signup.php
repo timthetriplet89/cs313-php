@@ -5,7 +5,8 @@
         
         $username = $_POST['username'];
         $name = $_POST['_name'];
-        $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $password = $_POST['txtPassword'];
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         
 	if($_POST) {
             

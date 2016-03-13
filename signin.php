@@ -26,6 +26,9 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 	$username = $_POST['txtUser'];
 	$password = $_POST['txtPassword'];
 
+        echo '<br>' . $username . '<br>';
+        echo '<br>' . $password . '<br>';
+        
 	try
 	{
             require("dbConnector.php");
