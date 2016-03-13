@@ -35,9 +35,7 @@
         $statement3 = $db->prepare($query3);
         $statement3->execute();
         
-            header("Location: signin.php"); 
-            die(); 
-            
+            header("Location: signin.php");            
 	} 
 ?> 
 <!DOCTYPE html> 
