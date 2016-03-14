@@ -1,7 +1,8 @@
 <?php
 /**********************************************************
-* File: signIn.php
-* Author: Br. Burton
+* File: signin.php
+* Author: Timothy Steele - with template from Brother 
+*           Burton.
 * 
 * Description: This page has a form for the user to sign in.
 *
@@ -83,6 +84,9 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 <html>
 <head>
 	<title>Sign In</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css_style_sheet.css">
 </head>
 
 <body>
@@ -95,7 +99,8 @@ if ($badLogin)
 }
 ?>
 
-<h1>Please sign in below:</h1>
+<h1>Welcome to Quotebook!</h1>
+<h2>Please sign in below:</h2>
 
 <form id="mainForm" action="signin.php" method="POST">
 

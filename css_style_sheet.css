@@ -51,6 +51,10 @@ header {
     size: 200%;
 }
 
-#link_mypage {
-    background: #FFB56D;
+#link_mypage { 
+   background: #FFB56D; 
+   width: 1000px; 
+   margin: 20px auto; 
+   padding: 20px; 
+   border: 1px solid black;
 }

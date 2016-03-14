@@ -61,5 +61,8 @@
                 <input type="submit" value="Add Connection"></input>
             </form>
         </div>
+        <div id="goToFriends">
+            <p><a href='friend_list.php'>View friends' QuoteBooks</a></p>
+        </div>
     </body>
 </html>

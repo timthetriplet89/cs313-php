@@ -7,6 +7,8 @@
         $name = $_POST['_name'];
         $password = $_POST['password'];
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $_SESSION['agentTaglineText'] = $_POST['_text'];
+        $_SESSION['agentTaglineAuthor'] = $_POST['_author'];
         
 	if($_POST) {
             
@@ -17,7 +19,6 @@
             $user_create_query->bindParam(':username', $username);  
             $user_create_query->bindParam(':password', $hashedPassword);  
             $user_create_query->execute(); 
-            
             $_SESSION['agentID'] = $db->lastInsertId();
             
         // Insert quote submitted by the user on the sign-up page into the 'quotes' table
@@ -27,6 +28,7 @@
         $statement->bindParam(':author', $_POST['_author']);
         $statement->execute();
         $quoteID = $db->lastInsertId();
+        $_SESSION['agentTaglineID'] = $quoteID;
         
         // Connect the quote and the user in the user_quote table
         $query2 = 'INSERT INTO user_quote(userID, quoteID) VALUES (:userID, :quoteID)';
@@ -34,6 +36,7 @@
         $statement2->bindParam(':userID', $_SESSION['agentID']);
         $statement2->bindParam(':quoteID', $quoteID);
         $statement2->execute();
+        
         
         $agentID = $_SESSION['agentID'];
         $query3 = "UPDATE users SET taglineID = $quoteID WHERE userID = $agentID";
@@ -47,7 +50,9 @@
 <html lang="en"> 
 <head> 
 	<title>Sign Up</title>
-	<meta charset="utf-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css_style_sheet.css">
 </head>
 <body>
         <form method="post">
