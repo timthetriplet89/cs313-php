@@ -64,5 +64,9 @@
         <div id="goToFriends">
             <p><a href='friend_list.php'>View friends' QuoteBooks</a></p>
         </div>
+        
+        <div>
+            <a href='signOut.php'>Sign Out</a>
+        </div>
     </body>
 </html>
