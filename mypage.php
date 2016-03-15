@@ -18,9 +18,7 @@
     
     <body>
         <div class="center_div">
-        <header><?php echo $_SESSION['agentUserName'] ?></header>
-        <p>   "<?php echo $_SESSION['agentTaglineText'] ?>"</p>
-        <p>      -<?php echo $_SESSION['agentTaglineAuthor'] ?></p>
+
         
 <?php 
 
@@ -37,9 +35,9 @@
             // loop through each of the user's quotes
             while ($row = $quotesQuery->fetch(PDO::FETCH_ASSOC)) {
                 // Display that quote text / author (as long as it's not the taglines
-                if ($row['quoteID'] != $_SESSION['agentTaglineID']) {
+                //if ($row['quoteID'] != $_SESSION['agentTaglineID']) {
                     echo '<p>"' . $row['text'] . '"   -' . $row['author'] . '</p>';                 
-                } 
+                //} 
             }   
         //}
         
