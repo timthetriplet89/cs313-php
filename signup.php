@@ -1,4 +1,5 @@
 <?php 
+        
 	require_once("dbConnector.php");  //  require_once("dbConnector.php")   
         $db = loadDatabase();         
 	require_once("password.php"); // require_once("password.php");          
@@ -66,7 +67,7 @@
             </div>
             <div>
                 <label for="quote_text">A Favorite Quote</label><br>
-                <textarea type="text" name="_text" id="_text" rows="4" cols="63"><br>
+                <textarea type="text" name="_text" id="_text" rows="4" cols="63"></textarea><br>
             </div>
             <div>
                 <label for="quote_author">And The Author</label><br>
