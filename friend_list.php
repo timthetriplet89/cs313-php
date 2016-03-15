@@ -8,7 +8,7 @@
 
     $db = loadDatabase(); 
     
-    $queryForID = $db->prepare("SELECT userID, name, taglineID FROM users WHERE username ='" . $_POST['username'] . "'");  // took out $_SESSION['username']
+    $queryForID = $db->prepare("SELECT userID, name, taglineID FROM users WHERE username ='" . $_SESSION['username'] . "'");  // took out $_SESSION['username']
     $queryForID->execute();
     $result = $queryForID->fetch();
     
