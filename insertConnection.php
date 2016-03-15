@@ -23,7 +23,7 @@
             $query3->execute(PDO::FETCH_ASSOC);
             $countConnection = $query3->rowCount();
             
-            echo "countConnection = " . $countConnection;
+            // echo "countConnection = " . $countConnection;
             
             if ($countConnection === 0) {
                 // Insert a connection
@@ -56,8 +56,8 @@
 	die();
 }
 
-header("Location: mypage.php");
-die();
+//header("Location: mypage.php");
+//die();
 
 ?>
 
@@ -71,7 +71,7 @@ die();
     </head>
     
     <body>
-        
+        <div class="center_div">    
         <header>New Connections</header><br>      
         
         <?php 
@@ -81,6 +81,6 @@ die();
                 echo 'Unable to add ' . $user_name_ToAdd . ' as a connection.<br>';
             }
 ?>
-        
+        </div>    
     </body>
 </html>
