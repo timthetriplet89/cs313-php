@@ -52,8 +52,8 @@
             <form id="addQuote" action="insertQuote.php" method="POST">  
                 <label for="quoteText">Quote Text</label><br>
                 <textarea id="quoteText" name="quoteText" rows="4" cols="65"></textarea><br><br>
-                <label for="quoteAuthor">Quote Author</label><br><br>
-                <input type="text" id="quoteAuthor" name="quoteAuthor"></input><br>
+                <label for="quoteAuthor">Quote Author</label><br>
+                <input type="text" id="quoteAuthor" name="quoteAuthor"></input><br><br>
                 <input type="submit" value="Add to database" ></input>
             </form>
         </div>

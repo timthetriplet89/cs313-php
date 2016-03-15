@@ -13,8 +13,8 @@
     $result = $queryForID->fetch();
     
     // Get the user's tagline 
-    $_SESSION['agentID'] = $result['userID'];       
-    $_SESSION['agentUserName'] = $result['name'];   
+    $_SESSION['agentID'] = $result['userID'];        // Do this in the signin page!
+    $_SESSION['agentUserName'] = $result['name'];    // Do this in the signin page!
     $_SESSION['agentTaglineID'] = $result['taglineID'];
     
     $queryForUserTagline = $db->prepare("SELECT text, author FROM users AS u INNER JOIN quotes AS q ON u.taglineID = q.quoteID WHERE u.userID = " . $_SESSION['agentID']);

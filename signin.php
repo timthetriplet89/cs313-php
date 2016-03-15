@@ -25,6 +25,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 {
 	// they have submitted a username and password for us to check
 	$username = $_POST['txtUser'];
+        $_SESSION['username'] = $username;
 	$password = $_POST['txtPassword'];
         
 	try
@@ -32,12 +33,14 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
             require("dbConnector.php");
 		$db = loadDatabase();
 
-		$query = 'SELECT password, userID FROM users WHERE username=:username';
+		$query = 'SELECT password, userID, taglineID, name FROM users WHERE username=:username';
 
 		$statement = $db->prepare($query);
 		$statement->bindParam(':username', $username);
 
 		$result = $statement->execute();
+
+//                echo 'result = ' . $result . '<br>';
                 
 		if ($result)
 		{
@@ -50,6 +53,8 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
                     {
 			// password was correct, put the user on the session, and redirect to home
 			$_SESSION['agentID'] = $row['userID'];
+                        $_SESSION['taglineID'] = $row['taglineID'];
+                        $_SESSION['agentUserName'] = $row['name'];                         
 			header("Location: mypage.php");
 			die(); // we always include a die after redirects.
                     }
