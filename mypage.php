@@ -17,7 +17,7 @@
     </head>
     
     <body>
-        
+        <div class="center_div">
         <header><?php echo $_SESSION['agentUserName'] ?></header>
         <p>   "<?php echo $_SESSION['agentTaglineText'] ?>"</p>
         <p>      -<?php echo $_SESSION['agentTaglineAuthor'] ?></p>
@@ -76,5 +76,6 @@
         <div>
             <a href='signOut.php'>Sign Out</a>
         </div>
+    </div>
     </body>
 </html>

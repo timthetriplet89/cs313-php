@@ -43,7 +43,8 @@
         $statement3 = $db->prepare($query3);
         $statement3->execute();
         
-            header("Location: signin.php");            
+            header("Location: signin.php");        
+            die();
 	} 
 ?> 
 <!DOCTYPE html> 
@@ -55,10 +56,14 @@
         <link rel="stylesheet" href="css_style_sheet.css">
 </head>
 <body>
+
+    <div class="center_div">
+        <h1>Welcome To Quotebook</h1>
         <form method="post">
             <div>
                 <label for="_name">Your Name:</label><br>
                 <input type="text" name="_name" id="_name"><br>
+            </div>
             <div>
                 <label for="quote_text">A Favorite Quote</label><br>
                 <input type="text" name="_text" id="_text"><br>
@@ -77,8 +82,8 @@
             </div>
             <div>
                 <button type="submit">Sign Up</button>
-            </div>
-                
+            </div>            
 	</form>
+    </div>
 </body>
 </html>

@@ -90,7 +90,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 </head>
 
 <body>
-<div>
+    <div class="center_div">
 
 <?php
 if ($badLogin)
@@ -118,7 +118,7 @@ if ($badLogin)
 
 <br /><br />
 
-Or <a href="signup.php">Sign up</a> for a new account.
+<p>Or <a href="signup.php">Sign up</a> for a new account.</p>
 
 </div>
 

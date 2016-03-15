@@ -4,10 +4,8 @@
     
     $usernameToAdd = $_POST['enterUsername'];
     $agentID = $_SESSION['agentID'];
+    $success = false;
     
-    //echo "<p>usernameToAdd: $usernameToAdd</p>"
-    //   . "<p>agentID: $agentID</p>";
-       
     try {
         
         require("dbConnector.php");
@@ -25,6 +23,8 @@
             $query3->execute(PDO::FETCH_ASSOC);
             $countConnection = $query3->rowCount();
             
+            echo "countConnection = " . $countConnection;
+            
             if ($countConnection === 0) {
                 // Insert a connection
                 $query3 = 'INSERT INTO connections(agentID, recipientID) VALUES (:agentID, :recipientID)';
@@ -39,7 +39,12 @@
                 $statement3->bindParam(':agentID', $userID_ToAdd);
                 $statement3->bindParam(':recipientID', $agentID);
                 $statement3->execute(); 
+                
+                $success = true;
             }
+            
+//            header("Location: list_.php");        
+//            die();
             
     }
     
@@ -69,7 +74,13 @@ die();
         
         <header>New Connections</header><br>      
         
-        <?php echo '<a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . '</a> is now a connection.' . '<br>'; ?>
+        <?php 
+            if($success) {
+                echo '<a href=\'project_list_quotes.php?userID=' . $userID_ToAdd . '\'>' . $user_name_ToAdd . '</a> is now a connection.' . '<br>';
+            } else {
+                echo 'Unable to add ' . $user_name_ToAdd . ' as a connection.<br>';
+            }
+?>
         
     </body>
 </html>
