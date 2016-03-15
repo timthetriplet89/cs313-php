@@ -63,26 +63,26 @@
         <form method="post">
             <div>
                 <label for="_name">Your Name:</label><br>
-                <input type="text" name="_name" id="_name"><br>
+                <input type="text" name="_name" id="_name"><br><br>
             </div>
             <div>
                 <label for="quote_text">A Favorite Quote</label><br>
-                <textarea type="text" name="_text" id="_text" rows="4" cols="63"></textarea><br>
+                <textarea type="text" name="_text" id="_text" rows="4" cols="63"></textarea><br><br>
             </div>
             <div>
                 <label for="quote_author">And The Author</label><br>
-                <input type="text" name="_author" id="_author"><br>
+                <input type="text" name="_author" id="_author"><br><br>
             </div>
             <div>
                 <label for="username">Username</label><br>
-                <input type="text" name="username" id="username"/><br>
+                <input type="text" name="username" id="username"/><br><br>
             </div>
             <div>
                 <label for="password">Password</label><br>
-                <input type="password" name="password" id="password"/><br>
+                <input type="password" name="password" id="password"/><br><br>
             </div>
             <div>
-                <input type="submit" value="Sign up"></input>
+                <input type="submit" value="Sign up"></input><br>
             </div>            
 	</form>
     </div>
