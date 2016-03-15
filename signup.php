@@ -83,7 +83,11 @@
             </div>
             <div>
                 <input type="submit" value="Sign up"></input><br>
-            </div>            
+            </div>
+            <div>
+                <p>Already have an account?  <a href="signin.php">Sign in.</a></p>
+            </div>
+                        
 	</form>
     </div>
 </body>
