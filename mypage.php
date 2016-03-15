@@ -19,7 +19,7 @@
     <body>
         <div class="center_div">
 
-        
+            <h2>My Quotes:</h2>
 <?php 
 
     try {

@@ -66,7 +66,7 @@
             </div>
             <div>
                 <label for="quote_text">A Favorite Quote</label><br>
-                <input type="text" name="_text" id="_text"><br>
+                <textarea type="text" name="_text" id="_text" rows="4" cols="63"><br>
             </div>
             <div>
                 <label for="quote_author">And The Author</label><br>
@@ -81,7 +81,7 @@
                 <input type="password" name="password" id="password"/><br>
             </div>
             <div>
-                <button type="submit">Sign Up</button>
+                <input type="submit" value="Sign up"></input>
             </div>            
 	</form>
     </div>
