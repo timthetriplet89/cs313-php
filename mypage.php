@@ -33,7 +33,7 @@
         $count = $quotesQuery->rowCount();
         
         // If there are quotes to display... 
-        if ($count > 1) {
+        //if ($count > 1) {
             // loop through each of the user's quotes
             while ($row = $quotesQuery->fetch(PDO::FETCH_ASSOC)) {
                 // Display that quote text / author (as long as it's not the taglines
@@ -41,7 +41,7 @@
                     echo '<p>"' . $row['text'] . '"   -' . $row['author'] . '</p>';                 
                 } 
             }   
-        }
+        //}
         
     } catch (PDOException $ex) { 
         echo "Error with DB. Details: $ex";
