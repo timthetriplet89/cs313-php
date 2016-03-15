@@ -3,14 +3,14 @@
         $db = loadDatabase();         
 	require_once("password.php"); // require_once("password.php");          
         
+	if($_POST) {
+            
         $username = $_POST['username'];
         $name = $_POST['_name'];
         $password = $_POST['password'];
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $_SESSION['agentTaglineText'] = $_POST['_text'];
         $_SESSION['agentTaglineAuthor'] = $_POST['_author'];
-        
-	if($_POST) {
             
             // First, create a new user in the users table (with a name, username, and password) 
             //$user_create_query = $db->prepare("INSERT INTO users (name, taglineID, username, password) VALUES (:name, :taglineID, :username, :password)"); 

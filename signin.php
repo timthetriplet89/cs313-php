@@ -26,9 +26,6 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 	// they have submitted a username and password for us to check
 	$username = $_POST['txtUser'];
 	$password = $_POST['txtPassword'];
-
-        echo '<br>' . $username . '<br>';
-        echo '<br>' . $password . '<br>';
         
 	try
 	{
@@ -41,15 +38,13 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 		$statement->bindParam(':username', $username);
 
 		$result = $statement->execute();
-
-                echo 'result = ' . $result . '<br>';
                 
 		if ($result)
 		{
 		    $row = $statement->fetch();
-                    $hashedPasswordFromDB = $row['password'];
-                    echo '<br>' . $hashedPasswordFromDB . '<br>';
-                    echo 'strlen - hashedPasswordFromDB = ' . strlen($hashedPasswordFromDB);
+//                    $hashedPasswordFromDB = $row['password'];
+//                    echo '<br>' . $hashedPasswordFromDB . '<br>';
+//                    echo 'strlen - hashedPasswordFromDB = ' . strlen($hashedPasswordFromDB);
                     // now check to see if the hashed password matches
                     if (password_verify($password, $hashedPasswordFromDB))
                     {
