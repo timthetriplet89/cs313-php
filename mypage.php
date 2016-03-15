@@ -30,11 +30,19 @@
                 ' ON q.quoteID = srqt.quoteID' . 
                 ' WHERE srqt.userID = ' . $_SESSION['agentID']);
         $quotesQuery->execute();
-        while ($row = $quotesQuery->fetch(PDO::FETCH_ASSOC)) {
-            if ($row['quoteID'] != $_SESSION['agentTaglineID']) {
-                echo '<p>"' . $row['text'] . '"   -' . $row['author'] . '</p>';                 
-            } 
-        } 
+        $count = $quotesQuery->rowCount();
+        
+        // If there are quotes to display... 
+        if ($count > 0) {
+            // loop through each of the user's quotes
+            while ($row = $quotesQuery->fetch(PDO::FETCH_ASSOC)) {
+                // Display that quote text / author (as long as it's not the taglines
+                if ($row['quoteID'] != $_SESSION['agentTaglineID']) {
+                    echo '<p>"' . $row['text'] . '"   -' . $row['author'] . '</p>';                 
+                } 
+            }   
+        }
+        
     } catch (PDOException $ex) { 
         echo "Error with DB. Details: $ex";
         die();

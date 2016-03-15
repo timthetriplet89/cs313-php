@@ -20,20 +20,29 @@
             $userID_ToAdd = $row['userID'];
             $user_name_ToAdd = $row['name'];
             
-            // Insert a connection
-            $query3 = 'INSERT INTO connections(agentID, recipientID) VALUES (:agentID, :recipientID)';
-            $statement3 = $db->prepare($query3);
-            $statement3->bindParam(':agentID', $agentID);
-            $statement3->bindParam(':recipientID', $userID_ToAdd);
-            $statement3->execute();
+            // Check to make sure that the connection does not already exist!
+            $query3 = $db->prepare('SELECT * FROM users WHERE agentID = ' . $agentID . ' AND recipientID = ' . $userID_ToAdd);
+            $query3->execute(PDO::FETCH_ASSOC);
+            $countConnection = $query3->rowCount();
             
-            // Insert a reverse connection
-            $query3 = 'INSERT INTO connections(agentID, recipientID) VALUES (:agentID, :recipientID)';
-            $statement3 = $db->prepare($query3);
-            $statement3->bindParam(':agentID', $userID_ToAdd);
-            $statement3->bindParam(':recipientID', $agentID);
-            $statement3->execute();
+            if ($countConnection === 0) {
+                // Insert a connection
+                $query3 = 'INSERT INTO connections(agentID, recipientID) VALUES (:agentID, :recipientID)';
+                $statement3 = $db->prepare($query3);
+                $statement3->bindParam(':agentID', $agentID);
+                $statement3->bindParam(':recipientID', $userID_ToAdd);
+                $statement3->execute();
+
+                // Insert a reverse connection
+                $query3 = 'INSERT INTO connections(agentID, recipientID) VALUES (:agentID, :recipientID)';
+                $statement3 = $db->prepare($query3);
+                $statement3->bindParam(':agentID', $userID_ToAdd);
+                $statement3->bindParam(':recipientID', $agentID);
+                $statement3->execute(); 
+            }
+            
     }
+    
     catch (Exception $ex)
 {
 	// Please be aware that you don't want to output the Exception message in
@@ -42,8 +51,8 @@
 	die();
 }
 
-//header("Location: mypage.php");
-//die();
+header("Location: mypage.php");
+die();
 
 ?>
 

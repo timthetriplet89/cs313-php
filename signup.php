@@ -57,23 +57,23 @@
 <body>
         <form method="post">
             <div>
-                <label for="_name">Your Name:</label>
-                <input type="text" name="_name" id="_name"
+                <label for="_name">Your Name:</label><br>
+                <input type="text" name="_name" id="_name"><br>
             <div>
-                <label for="quote_text">A Favorite Quote</label>
-                <input type="text" name="_text" id="_text">
+                <label for="quote_text">A Favorite Quote</label><br>
+                <input type="text" name="_text" id="_text"><br>
             </div>
             <div>
-                <label for="quote_author">And The Author</label>
-                <input type="text" name="_author" id="_author">
+                <label for="quote_author">And The Author</label><br>
+                <input type="text" name="_author" id="_author"><br>
             </div>
             <div>
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username"/>
+                <label for="username">Username</label><br>
+                <input type="text" name="username" id="username"/><br>
             </div>
             <div>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password"/>
+                <label for="password">Password</label><br>
+                <input type="password" name="password" id="password"/><br>
             </div>
             <div>
                 <button type="submit">Sign Up</button>
