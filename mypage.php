@@ -52,8 +52,8 @@
             <form id="addQuote" action="insertQuote.php" method="POST">  
                 <label for="quoteText">Quote Text</label><br>
                 <textarea id="quoteText" name="quoteText" rows="4" cols="65"></textarea><br><br>
-                <input type="text" id="quoteAuthor" name="quoteAuthor"></input><br>
                 <label for="quoteAuthor">Quote Author</label><br><br>
+                <input type="text" id="quoteAuthor" name="quoteAuthor"></input><br>
                 <input type="submit" value="Add to database" ></input>
             </form>
         </div>
@@ -63,12 +63,12 @@
             <header>Who Would You Like To Add?</header>
             <form id="addConnection" action="insertConnection.php" method="POST">
                 <br><label for="enterUsername">Enter Username:</label><br>
-                <input type="text" id="enterUsername" name="enterUsername"></input><br>
+                <input type="text" id="enterUsername" name="enterUsername"></input><br><br>
                 <input type="submit" value="Add Connection"></input>
             </form>
         </div>
         <div id="goToFriends">
-            <p><a href='friend_list.php'>View friends' QuoteBooks</a></p>
+            <p><br><br><a href='friend_list.php'>View friends' QuoteBooks</a></p>
         </div>
         
         <div>
