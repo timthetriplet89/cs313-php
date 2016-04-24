@@ -18,7 +18,7 @@ function loadDatabase()
           require("setLocalDatabaseCredentials.php");
      }
      else 
-     { 
+     {
           // In the openshift environment
           //echo "Using openshift credentials: ";
 
