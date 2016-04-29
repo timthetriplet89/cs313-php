@@ -18,7 +18,7 @@ and open the template in the editor.
     <body id="index" class="body">
         
         <div id="center_div">
-            <h1>Hello. World.</h1><br>
+            <h1><?php echo "Hello PHP World." ?></h1><br>
             
         </div>
         
