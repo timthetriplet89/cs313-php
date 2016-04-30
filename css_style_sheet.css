@@ -21,20 +21,8 @@ body {
    font-size: 15px; 
    font-family: "Verdana"; 
    border: 1px solid black;
-   background: #8CBCE2;
+   background: 	#90A3B1;       // #8CBCE2;
 }    
- 
-#index {
-   background: #A3F5A3;     //  RED: #ff7272
-}
-
-//#assignments {
-//}
-
-// Not currently in use
-#center_div {
-    background: #000000;
-}
 
 button {
      background:none!important;
@@ -51,15 +39,16 @@ header {
     size: 200%;
 }
 
-#link_mypage { 
-   background: #FFB56D; 
-   width: 1000px; 
-   margin: 20px auto; 
-   padding: 20px; 
-   border: 1px solid black;
+#rightdiv {
+    float: left;
 }
 
 .center_div {
     width: 50%;
     margin: 0 auto; 
+}
+
+#selfie {
+    width:480px;
+    height:270px;
 }
