@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -9,6 +13,7 @@
 <body>
     
     <?php 
+    
     // This function code is from: http://stackoverflow.com/questions/4871942 -->
     function redirect($url) {
         ob_start();
@@ -17,7 +22,7 @@
         die();
     } 
      
-    if (isset($_SESSION['has_taken_survey'])) { 
+    if (isset($_SESSION["has_taken_survey"])) { 
         $survey_results_URL = 'http://php-steele2.rhcloud.com/2_survey_results.php';
         redirect($survey_results_URL);
     } ?> 
@@ -52,3 +57,9 @@
 		<br>
 		<input type="submit">
 	</form>
+        
+        /////////////////////////////////////////
+    print_r($_SESSION);
+    /////////////////////////////////////////    
+        
+    <?php include 'post_body.php'; ?>

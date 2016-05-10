@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    session_start();    
+    $_SESSION["has_taken_survey"] = "true";
+//    print_r($_SESSION);
 ?>
 
 <!--  By: Timothy Steele -->
@@ -13,7 +15,6 @@
     </head>
     <body>
       
-
 <?php include 'pre_body.php'; ?>
 
 <?php 
@@ -34,7 +35,6 @@ if (!empty($_POST)) {
     fwrite($resultsFile,$surveyText);
     
     fclose($resultsFile);
-    $_SESSION["has_taken_survey"] = true;
 } ?>
 
         <h1>Survey Results</h1>
