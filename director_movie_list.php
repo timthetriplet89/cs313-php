@@ -37,10 +37,10 @@
         require("dbConnector.php");
         $db = loadDatabase();
 
-    try {
-        
-        echo "director_id = " . $_SESSION['director_id'] . '<br>';
+                echo "director_id = " . $_SESSION['director_id'] . '<br>';
         echo "director name = " . $_SESSION['director_name']  . '<br>';
+        
+    try {
         
         $statement = "SELECT title, id FROM movies WHERE director_id = " . $_SESSION['director_id']; 
         $queryMovies = $db->prepare($statement);
