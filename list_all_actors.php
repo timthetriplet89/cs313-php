@@ -16,7 +16,6 @@
         
         <header>Actor List</header><br><br>
    
-        <p class="bold"></p>
     <?php
     
     require("dbConnector.php"); 
@@ -40,7 +39,7 @@
     
     ?>
        
-        <p>Back to <a href="http://php-steele2.rhcloud.com/movie_db_menu.php">Main Menu</a></p>            
+        <p class="bold">*** Back to <a href="http://php-steele2.rhcloud.com/movie_db_menu.php">Main Menu ***</a></p>           
         
     </body>
 </html>

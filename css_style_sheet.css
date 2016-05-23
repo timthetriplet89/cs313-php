@@ -60,3 +60,7 @@ header {
 .big_title {
     font-size: 30px;
 }
+
+.bold {
+    font-weight: bold;
+}

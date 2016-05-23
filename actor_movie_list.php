@@ -1,5 +1,6 @@
 <?php
     session_start();
+    
     // get the actor_id passed in
     if (isset($_GET['actor_id'])) {
        $_SESSION['actor_id'] = $_GET['actor_id'];
@@ -9,16 +10,12 @@
     require("dbConnector.php"); 
     $db = loadDatabase();
     
-//    echo "Database successfully loaded"; //////////////////////////////////////
-    
     // Get the Director's Name
     $statement1 = "SELECT name FROM actors WHERE id = " . $_SESSION['actor_id'];
     $queryActorName = $db->prepare($statement1);
     $queryActorName->execute();
     $actor = $queryActorName->fetch(PDO::FETCH_ASSOC);
     $_SESSION['actor_name'] = $actor['name'];
-    
-//    echo "Got the directors's name"; /.//////////////////////////////////////
 ?>
 
 <!--  By: Timothy Steele -->
@@ -37,10 +34,6 @@
    
     <?php
     
-        // Load The Database
-//        require("dbConnector.php");
-//        $db = loadDatabase();
-        
     try {
         
         $statement = "SELECT m.title, m.id"

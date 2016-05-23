@@ -29,13 +29,9 @@
     
     <body>
         
-        <header><?php echo $_SESSION['director_name']; ?></header><br>
+        <header>Movies Directed By <?php echo $_SESSION['director_name']; ?></header><br>
    
     <?php
-    
-        // Load The Database
-//        require("dbConnector.php");
-//        $db = loadDatabase();
         
     try {
         

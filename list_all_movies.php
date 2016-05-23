@@ -26,13 +26,6 @@
         $statement = "SELECT title, id FROM movies"; 
         $queryMovies = $db->prepare($statement); 
         $queryMovies->execute(); 
-        //$movies = $queryMovies->fetchAll(PDO::FETCH_ASSOC); 
-
-//        foreach($movies as $movie); 
-//        { 
-//            $url = "\"http://php-steele2.rhcloud.com/single_movie.php?movie_id=" . $movie['id']. "\"";
-//            echo '<p><a href=' . $url . '>' . $movie['title'] . '</a></p>';
-//        } 
         
             while ($movie = $queryMovies->fetch(PDO::FETCH_ASSOC)) {
                 $url = "\"http://php-steele2.rhcloud.com/single_movie.php?movie_id=" . $movie['id']. "\"";
@@ -46,7 +39,7 @@
     
     ?>
         
-        <p>Back to <a href="http://php-steele2.rhcloud.com/movie_db_menu.php">Main Menu</a></p>    
+        <p class="bold">*** Back to <a href="http://php-steele2.rhcloud.com/movie_db_menu.php">Main Menu ***</a></p>    
         
     </body>
 </html>
