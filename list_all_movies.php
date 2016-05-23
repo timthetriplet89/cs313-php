@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Connections</title>
+        <title>Movie List</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css_style_sheet.css">
@@ -26,7 +26,7 @@
         $statement = "SELECT title, id FROM movies"; 
         $queryMovies = $db->prepare($statement); 
         $queryMovies->execute(); 
-        $movies = $queryMovies->fetchAll(PDO::FETCH_ASSOC); 
+        //$movies = $queryMovies->fetchAll(PDO::FETCH_ASSOC); 
 
 //        foreach($movies as $movie); 
 //        { 
