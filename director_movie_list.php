@@ -5,23 +5,23 @@
        $_SESSION['director_id'] = $_GET['director_id'];
     }
     
-//    // Load The Database
-//    require("dbConnector.php"); 
-//    $db = loadDatabase();
-//    
-//    // Get the Director's Name
-//    $statement1 = "SELECT name FROM directors WHERE id = " . $_SESSION['director_id'];
-//    $queryDirectorName = $db->prepare($statement1);
-//    $queryDirectorName->execute();
-//    $director = $queryDirectorName->fetch(PDO::FETCH_ASSOC);
-//    $_SESSION['director_name'] = $director['name'];
+    // Load The Database
+    require("dbConnector.php"); 
+    $db = loadDatabase();
+    
+    // Get the Director's Name
+    $statement1 = "SELECT name FROM directors WHERE id = " . $_SESSION['director_id'];
+    $queryDirectorName = $db->prepare($statement1);
+    $queryDirectorName->execute();
+    $director = $queryDirectorName->fetch(PDO::FETCH_ASSOC);
+    $_SESSION['director_name'] = $director['name'];
 ?>
 
 <!--  By: Timothy Steele -->
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Director Info</title>
+        <title><?php echo $_SESSION['director_name']; ?></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css_style_sheet.css">
@@ -29,15 +29,13 @@
     
     <body>
         
-        <header>Director Info</header><br>
+        <header><?php echo $_SESSION['director_name']; ?></header><br>
    
     <?php
     
         // Load The Database
         require("dbConnector.php");
         $db = loadDatabase();
-
-        echo "director_id = " . $_SESSION['director_id'] . '<br>';
         
     try {
         
