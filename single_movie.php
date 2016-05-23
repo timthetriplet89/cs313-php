@@ -45,14 +45,14 @@
                 . " WHERE m_a.movie_id = " . $_SESSION['movie_id'];
         $queryActors = $db->prepare($statement); 
         $queryActors->execute(); 
-        $actorList = $queryMovie->fetchAll(); 
+        $actorList = $queryMovie->fetchAll(PDO::FETCH_ASSOC); 
 
         foreach($actorList as $actorListItem); 
         {
             $statement2 = "SELECT name, id FROM actors WHERE id = " . $actorListItem['actor_id'];
             $queryActor = $db->prepare($statement2);
             $queryActor->execute();
-            $actor = $queryActor->fetch();
+            $actor = $queryActor->fetch(PDO::FETCH_ASSOC);
             
             echo $actor['name'] . '<br>';
         }

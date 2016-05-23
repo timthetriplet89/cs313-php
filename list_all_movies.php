@@ -26,7 +26,7 @@
         $statement = "SELECT title, id FROM movies"; 
         $queryMovies = $db->prepare($statement); 
         $queryMovies->execute(); 
-        $movies = $queryMovies->fetchAll(); 
+        $movies = $queryMovies->fetchAll(PDO::FETCH_ASSOC); 
 
         foreach($movies as $movie); 
         { 
