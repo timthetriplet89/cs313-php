@@ -42,15 +42,20 @@
                 . " FROM movie_actors AS m_a" 
                 . " INNER JOIN actors AS acts" 
                 . " ON m_a.actor_id = acts.id" 
-                . " WHERE m_a.movie_id = " . $_SESSION['movie_id']; 
+                . " WHERE m_a.movie_id = " . $_SESSION['movie_id'];
         $queryActors = $db->prepare($statement); 
         $queryActors->execute(); 
-        $actors = $queryMovie->fetchAll(); 
+        $actorList = $queryMovie->fetchAll(); 
 
-        foreach($actors as $actor); 
+        foreach($actorList as $actorListItem); 
         {
-            echo '<p>' . $actor['name'] . '</p>';
-        } 
+            $statement2 = "SLECT name, id FROM actors WHERE id = " . $actorListItem['actor_id'];
+            $queryActor = $db->prepare($statement2);
+            $queryActor->execute();
+            $actor = $queryActor->fetch();
+            
+            echo $actor['name'] . '<br>';
+        }
         
     } catch (PDOException $ex) {
         echo "Error with DB. Details: $ex";
