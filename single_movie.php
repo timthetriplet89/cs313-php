@@ -49,7 +49,7 @@
 
         foreach($actorList as $actorListItem); 
         {
-            $statement2 = "SLECT name, id FROM actors WHERE id = " . $actorListItem['actor_id'];
+            $statement2 = "SELECT name, id FROM actors WHERE id = " . $actorListItem['actor_id'];
             $queryActor = $db->prepare($statement2);
             $queryActor->execute();
             $actor = $queryActor->fetch();
