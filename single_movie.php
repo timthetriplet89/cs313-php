@@ -44,7 +44,7 @@
         // Display Movie Title, Description, Director, and Year
         echo '<p class="small_title">' . $movie['title'] . '</p><br>';
         echo $movie['description'] . '<br><br>';
-        echo '<p>Directed By' . $directorName . ', ' . $movie['year'] . '</p><br>';
+        echo '<p>Directed by ' . $directorName . ', ' . $movie['year'] . '</p><br>';
         echo "Actors:<br>"; 
         
         // Get the actors for the movie
