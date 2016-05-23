@@ -28,11 +28,17 @@
         $queryMovies->execute(); 
         $movies = $queryMovies->fetchAll(PDO::FETCH_ASSOC); 
 
-        foreach($movies as $movie); 
-        { 
-            $url = "\"http://php-steele2.rhcloud.com/single_movie.php?movie_id=" . $movie['id']. "\"";
-            echo '<p><a href=' . $url . '>' . $movie['title'] . '</a></p>';
-        } 
+//        foreach($movies as $movie); 
+//        { 
+//            $url = "\"http://php-steele2.rhcloud.com/single_movie.php?movie_id=" . $movie['id']. "\"";
+//            echo '<p><a href=' . $url . '>' . $movie['title'] . '</a></p>';
+//        } 
+        
+            while ($movie = $movies->fetch(PDO::FETCH_ASSOC)) {
+                $url = "\"http://php-steele2.rhcloud.com/single_movie.php?movie_id=" . $movie['id']. "\"";
+                echo '<p><a href=' . $url . '>' . $movie['title'] . '</a></p>';
+            }
+            
     } catch (PDOException $ex) {
         echo "Error with DB. Details: $ex";
         die();
