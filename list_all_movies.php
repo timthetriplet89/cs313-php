@@ -23,7 +23,7 @@
 
     try {
         
-    $statement = "SELECT name, id FROM movies"; 
+    $statement = "SELECT title, id FROM movies"; 
     $queryMovies = $db->prepare($statement);
     $queryMovies->execute();
     $movies = $queryMovies->fetchAll();
