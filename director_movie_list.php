@@ -32,11 +32,12 @@
         <header><?php echo $_SESSION['director_name'] ?></header><br>
    
     <?php
+    
+        // Load The Database
+        require("dbConnector.php");
+        $db = loadDatabase();
 
     try {
-        
-       // Load The Database
-        require("dbConnector.php");
         
         $statement = "SELECT title, id FROM movies WHERE director_id = " . $_SESSION['director_id']; 
         $queryMovies = $db->prepare($statement); 
