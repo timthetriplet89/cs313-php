@@ -38,7 +38,7 @@
         $statement2 = "SELECT name FROM directors WHERE id = " . $movie['director_id'];
         $queryDirectorName = $db->prepare($statement2);
         $queryDirectorName->execute();
-        $director = $queryDirectorName->fetch();
+        $director = $queryDirectorName->fetch(PDO::FETCH_ASSOC);
         $directorName = $director['name'];
                 
         // Display Movie Title, Description, Director, and Year
