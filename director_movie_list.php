@@ -34,8 +34,8 @@
     <?php
     
         // Load The Database
-        require("dbConnector.php");
-        $db = loadDatabase();
+//        require("dbConnector.php");
+//        $db = loadDatabase();
         
     try {
         
