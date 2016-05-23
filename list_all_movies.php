@@ -34,7 +34,7 @@
 //            echo '<p><a href=' . $url . '>' . $movie['title'] . '</a></p>';
 //        } 
         
-            while ($movie = $movies->fetch(PDO::FETCH_ASSOC)) {
+            while ($movie = $queryMovies->fetch(PDO::FETCH_ASSOC)) {
                 $url = "\"http://php-steele2.rhcloud.com/single_movie.php?movie_id=" . $movie['id']. "\"";
                 echo '<p><a href=' . $url . '>' . $movie['title'] . '</a></p>';
             }
