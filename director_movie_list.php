@@ -39,15 +39,18 @@
 
     try {
         
+        echo "director_id = " . $_SESSION['director_id'] . '<br>';
+        echo "director name = " . $_SESSION['director_name']  . '<br>';
+        
         $statement = "SELECT title, id FROM movies WHERE director_id = " . $_SESSION['director_id']; 
-        $queryMovies = $db->prepare($statement); 
-        $queryMovies->execute(); 
+        $queryMovies = $db->prepare($statement);
+        $queryMovies->execute();
         
         while ($movie = $queryMovies->fetch(PDO::FETCH_ASSOC)) {
             $url = "\"http://php-steele2.rhcloud.com/single_movie.php?movie_id=" . $movie['id']. "\"";
             echo '<p><a href=' . $url . '>' . $$movie['title'] . '</a></p>';
         }
-            
+        
     } catch (PDOException $ex) {
         echo "Error with DB. Details: $ex";
         die();
