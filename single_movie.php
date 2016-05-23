@@ -29,7 +29,7 @@
          
         // Query database for movie information 
         $statement1 = "SELECT * FROM movies WHERE id = " . $_SESSION['movie_id']; 
-        $queryMovies = $db->prepare($statement);  
+        $queryMovies = $db->prepare($statement1);  
         $queryMovies->execute(); 
         $movie = $queryMovies->fetch(); 
 
@@ -53,7 +53,7 @@
                 . " INNER JOIN actors AS acts" 
                 . " ON m_a.actor_id = acts.id" 
                 . " WHERE m_a.movie_id = " . $_SESSION['movie_id'];
-        $queryActors = $db->prepare($statement); 
+        $queryActors = $db->prepare($statement3); 
         $queryActors->execute(); 
         
         while ($actorListItem = $queryActors->fetch(PDO::FETCH_ASSOC))
