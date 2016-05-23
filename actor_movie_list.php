@@ -39,7 +39,13 @@
         
     try {
         
-        $statement = "SELECT title, id FROM movies WHERE actor_id = " . $_SESSION['actor_id']; 
+        $statement = "SELECT m.title, m.id"
+                . " FROM movies AS m"
+                . " INNER JOIN movie_actors AS mActs"
+                . " ON m.id = mActs.movie_id"
+                . " INNER JOIN actors AS a"
+                . " ON mActs.actor_id = a.id"
+                . " WHERE a.id = " . $_SESSION['actor_id'] . ";";
         $queryMovies = $db->prepare($statement);
         $queryMovies->execute();
         
