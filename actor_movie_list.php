@@ -9,7 +9,7 @@
     require("dbConnector.php"); 
     $db = loadDatabase();
     
-    echo "Database successfully loaded";
+//    echo "Database successfully loaded"; //////////////////////////////////////
     
     // Get the Director's Name
     $statement1 = "SELECT name, FROM actors WHERE id = " . $_SESSION['actor_id'];
@@ -17,6 +17,8 @@
     $queryActorName->execute();
     $actor = $queryActorName->fetch(PDO::FETCH_ASSOC);
     $_SESSION['actor_name'] = $actor['name'];
+    
+    echo "Got the directors's name";
 ?>
 
 <!--  By: Timothy Steele -->
