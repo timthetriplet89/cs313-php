@@ -39,7 +39,7 @@
         
     try {
         
-        $statement = "SELECT title, director_id, id FROM movies WHERE director_id = " . $_SESSION['director_id']; 
+        $statement = "SELECT title, id FROM movies WHERE director_id = " . $_SESSION['director_id']; 
         $queryMovies = $db->prepare($statement);
         $queryMovies->execute();
         
