@@ -38,11 +38,11 @@
         echo $movie['director'] . '<br>';
         echo "Actors:<br>";
         
-        $statement = "SELECT movie_id, actor_id" 
+        $statement = "SELECT m_a.movie_id, m_a.actor_id" 
                 . " FROM movie_actors AS m_a" 
                 . " INNER JOIN actors AS acts" 
-                . "ON m_a.actor_id = acts.id" 
-                . "WHERE movie_id = " . $_SESSION['movie_id']; 
+                . " ON m_a.actor_id = acts.id" 
+                . " WHERE m_a.movie_id = " . $_SESSION['movie_id']; 
         $queryActors = $db->prepare($statement); 
         $queryActors->execute(); 
         $actors = $queryMovie->fetchAll(); 
