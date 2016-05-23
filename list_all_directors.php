@@ -27,7 +27,7 @@
         $queryDirectors = $db->prepare($statement); 
         $queryDirectors->execute(); 
         
-            while ($director = $queryDirector->fetch(PDO::FETCH_ASSOC)) {
+            while ($director = $queryDirectors->fetch(PDO::FETCH_ASSOC)) {
                 $url = "\"http://php-steele2.rhcloud.com/director_movie_list.php?director_id=" . $director['id']. "\"";
                 echo '<p><a href=' . $url . '>' . $director['name'] . '</a></p>';
             }
