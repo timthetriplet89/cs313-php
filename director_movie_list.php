@@ -35,7 +35,10 @@
 
     try {
         
-        $statement = "SELECT title, id FROM movies WHERE director_id = " . '\'' . $_SESSION['director_name'] . '\''; 
+       // Load The Database
+        require("dbConnector.php");
+        
+        $statement = "SELECT title, id FROM movies WHERE director_id = " . $_SESSION['director_id']; 
         $queryMovies = $db->prepare($statement); 
         $queryMovies->execute(); 
         
