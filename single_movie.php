@@ -25,19 +25,30 @@
     require("dbConnector.php"); 
     $db = loadDatabase();
 
-    try {
-        
-        $statement = "SELECT * FROM movies WHERE id = " . $_SESSION['movie_id']; 
-        $queryMovies = $db->prepare($statement); 
+    try { 
+         
+        // Query database for movie information 
+        $statement1 = "SELECT * FROM movies WHERE id = " . $_SESSION['movie_id']; 
+        $queryMovies = $db->prepare($statement);  
         $queryMovies->execute(); 
         $movie = $queryMovies->fetch(); 
+
+        // Query database for name of director
         
+        $statement2 = "SELECT name FROM directors WHERE id = " . $movie['director_id'];
+        $queryDirectorName = $db->prepare($statement2);
+        $queryDirectorName->execute();
+        $director = $queryDirectorName->fetch();
+        $directorName = $director['name'];
+                
+        // Display Movie Title, Description, Director, and Year
         echo '<p class="small_title">' . $movie['title'] . '</p><br>';
         echo $movie['description'] . '<br><br>';
-        echo '<p>Directed By' . $movie['director'] . ', ' . $movie['year'] . '</p><br>';
+        echo '<p>Directed By' . $directorName . ', ' . $movie['year'] . '</p><br>';
         echo "Actors:<br>"; 
         
-        $statement = "SELECT m_a.movie_id, m_a.actor_id" 
+        // Get the actors for the movie
+        $statement3 = "SELECT m_a.movie_id, m_a.actor_id" 
                 . " FROM movie_actors AS m_a" 
                 . " INNER JOIN actors AS acts" 
                 . " ON m_a.actor_id = acts.id" 
