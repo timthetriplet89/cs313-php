@@ -9,6 +9,8 @@
     require("dbConnector.php"); 
     $db = loadDatabase();
     
+    echo "Database successfully loaded";
+    
     // Get the Director's Name
     $statement1 = "SELECT name, FROM actors WHERE id = " . $_SESSION['actor_id'];
     $queryActorName = $db->prepare($statement1);
@@ -46,11 +48,12 @@
                 . " INNER JOIN actors AS a"
                 . " ON mActs.actor_id = a.id"
                 . " WHERE a.id = " . $_SESSION['actor_id'] . ";";
+        
         $queryMovies = $db->prepare($statement);
         $queryMovies->execute();
         
         while ($movie = $queryMovies->fetch(PDO::FETCH_ASSOC)) {
-            $url = "\"http://php-steele2.rhcloud.com/single_movie.php?movie_id=" . $movie['id']. "\"";
+            $url = "\"http://php-steele2.rhcloud.com/single_movie.php?movie_id=" . $movie['id'] . "\"";
             echo '<p><a href=' . $url . '>' . $movie['title'] . '</a></p>';
         }
         
