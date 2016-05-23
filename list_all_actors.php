@@ -14,8 +14,9 @@
     
     <body>
         
-        <header>Actor List</header><br>
+        <header>Actor List</header><br><br>
    
+        <p class="bold"></p>
     <?php
     
     require("dbConnector.php"); 

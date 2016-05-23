@@ -29,7 +29,7 @@
     
     <body>
         
-        <header><?php echo $_SESSION['actor_name']; ?></header><br>
+        <header>Movies <?php echo $_SESSION['actor_name']; ?> Acted In</header><br>
    
     <?php
     

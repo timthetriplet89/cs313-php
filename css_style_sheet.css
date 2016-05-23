@@ -52,3 +52,11 @@ header {
     width:480px;
     height:270px;
 }
+
+.small_title {
+    font-size: 20px;
+}
+
+.big_title {
+    font-size: 30px;
+}
