@@ -14,7 +14,7 @@
     
     <body>
         
-        <header>Connections</header><br>
+        <header>Movie List</header><br>
    
     <?php
     

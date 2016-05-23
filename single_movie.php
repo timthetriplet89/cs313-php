@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // get the userID passed in, of the logged in user's connection
+    // get the movie_id passed in
     if (isset($_GET['movie_id'])) {
        $_SESSION['movie_id'] = $_GET['movie_id'];
     }
