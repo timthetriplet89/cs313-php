@@ -32,11 +32,10 @@
         $queryMovies->execute(); 
         $movie = $queryMovies->fetch(); 
         
-        echo $movie['title'] . '<br>';
-        echo $movie['description'] . '<br>';
-        echo $movie['year'] . '<br>';
-        echo $movie['director'] . '<br>';
-        echo "Actors:<br>";
+        echo '<p class="small_title">' . $movie['title'] . '</p><br>';
+        echo $movie['description'] . '<br><br>';
+        echo '<p>Directed By' . $movie['director'] . ', ' . $movie['year'] . '</p><br>';
+        echo "Actors:<br>"; 
         
         $statement = "SELECT m_a.movie_id, m_a.actor_id" 
                 . " FROM movie_actors AS m_a" 
@@ -45,24 +44,17 @@
                 . " WHERE m_a.movie_id = " . $_SESSION['movie_id'];
         $queryActors = $db->prepare($statement); 
         $queryActors->execute(); 
-//        $actorList = $queryMovie->fetchAll(PDO::FETCH_ASSOC); 
-//
-//        foreach($actorList as $actorListItem); 
-//        {
-//            $statement2 = "SELECT name, id FROM actors WHERE id = " . $actorListItem['actor_id'];
-//            $queryActor = $db->prepare($statement2);
-//            $queryActor->execute();
-//            $actor = $queryActor->fetch(PDO::FETCH_ASSOC);
-//            
-//            echo $actor['name'] . '<br>';
-//        }
+        
         while ($actorListItem = $queryActors->fetch(PDO::FETCH_ASSOC))
         {
             $statement2 = "SELECT name, id FROM actors WHERE id = " . $actorListItem['actor_id'];
             $queryActor = $db->prepare($statement2);
             $queryActor->execute();
             $actor = $queryActor->fetch(PDO::FETCH_ASSOC);            
-            echo $actor['name'] . '<br>';
+            //echo "   " . $actor['name'] . '<br>';
+            
+            $url = "\"http://php-steele2.rhcloud.com/actor_movie_list.php?actor_id=" . $actor['id']. "\"";
+            echo '<p><a href=' . $url . '>' . $actor['name'] . '</a></p>';
         }
         
     } catch (PDOException $ex) {

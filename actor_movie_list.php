@@ -10,7 +10,7 @@
     $db = loadDatabase();
     
     // Get the Director's Name
-    $statement1 = "SELECT name FROM actors WHERE id = " . $_SESSION['actor_id'];
+    $statement1 = "SELECT name, FROM actors WHERE id = " . $_SESSION['actor_id'];
     $queryActorName = $db->prepare($statement1);
     $queryActorName->execute();
     $actor = $queryActorName->fetch(PDO::FETCH_ASSOC);
