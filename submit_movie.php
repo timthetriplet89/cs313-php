@@ -76,7 +76,7 @@
 	die();
 }
 
-header("Location: mypage.php");
+header("Location: add_to_database.php");
 die();
 
 ?>

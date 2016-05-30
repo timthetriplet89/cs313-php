@@ -19,7 +19,7 @@
             <input type="text" id="title" name="title"><br><br>        
             
             <label for="description">Movie Description</label>
-            <textarea id="description" name="description" rows="4" cols="65"><br><br>
+            <textarea id="description" name="description" rows="4" cols="65"></textarea><br><br>
             
             <!--year-->
             <label for="year">Year</label>
