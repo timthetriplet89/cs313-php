@@ -96,7 +96,5 @@
 	die();
 }
 
-header("Location: add_to_database.php");
-die();
-
-?>
+//header("Location: add_to_database.php");
+//die();
