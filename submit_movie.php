@@ -5,7 +5,7 @@
         //if(isset($_POST['title']) & isset($_POST['year'])) {  //  ADD THIS!
         $title = $_POST['title']; 
         $description = $_POST['description'];
-        $year =  $_POST['year'];
+        $year = intval($_POST['year']);
         $director = $_POST['director'];
         $actor1 = $_POST['actor1'];
         $actor2 = $_POST['actor2'];
