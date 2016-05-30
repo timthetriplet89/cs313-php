@@ -1,8 +1,21 @@
 <?php
+    session_start();
+?>
 
-    session_start(); 
+<!--  By: Timothy Steele -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add To Database</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css_style_sheet.css">
+    </head>
     
-        //if(isset($_POST['title']) & isset($_POST['year'])) {  //  ADD THIS!
+    <body>
+
+<?php
+        //if(isset($_POST['title']) & isset($_POST['year'])) {  //  ADD THIS LATER
         $title = $_POST['title']; 
         $description = $_POST['description'];
         $year = intval($_POST['year']);
@@ -70,6 +83,10 @@
         $statement8->bindParam(':movie_id', $movieID);
         $statement8->bindParam(':actor_id', $actor3_id);
         $statement8->execute();
+        
+        echo "<h2>Movie successfully added!</h2>";
+        echo "<h2>Go back to <a href=\"add_to_database.php\">add another movie</a></h2><br>";
+        echo "<p>... or return to the <a href=\"movie_db_menu.php\">main menu</a>.</p>";
     }
     catch (Exception $ex)
 {
