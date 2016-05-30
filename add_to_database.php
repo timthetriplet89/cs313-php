@@ -42,6 +42,7 @@
             <label for="director">Director</label>
             <input type="text" id="director" name="director">
 
+            <input type="submit" value="Add Movie"></input>  
             
         </form>        
     </body>
