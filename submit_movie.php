@@ -57,16 +57,19 @@
         $statement6 = $db->prepare($query6);
         $statement6->bindParam(':movie_id', $movieID);
         $statement6->bindParam(':actor_id', $actor1_id);
+        $statement6->execute();
         
         $query7 = 'INSERT INTO movie_actors(movie_id, actor_id) VALUES(:movie_id, :actor_id);';
         $statement7 = $db->prepare($query7);
         $statement7->bindParam(':movie_id', $movieID);
         $statement7->bindParam(':actor_id', $actor2_id);
+        $statement7->execute();
         
         $query8 = 'INSERT INTO movie_actors(movie_id, actor_id) VALUES(:movie_id, :actor_id);';
         $statement8 = $db->prepare($query8);
         $statement8->bindParam(':movie_id', $movieID);
         $statement8->bindParam(':actor_id', $actor3_id);
+        $statement8->execute();
     }
     catch (Exception $ex)
 {
