@@ -13,17 +13,19 @@
     </head>
     
     <body>
+        
+        <h1>Add Movie To Database</h1>
+        
         <form id="addMovie" action="submit_movie.php" method="POST">
             
-            <label for="title">Title</label>
+            <label for="title">Title</label><br>
             <input type="text" id="title" name="title"><br><br>        
             
-            <label for="description">Movie Description</label>
+            <label for="description">Movie Description</label><br>
             <textarea id="description" name="description" rows="4" cols="65"></textarea><br><br>
-            
-            <!--year-->
+
             <label for="year">Year</label>
-            <select>
+            <select name="year">
                 <option value="2011">2011</option>
                 <option value="2012">2012</option>
                 <option value="2013">2013</option>
@@ -40,7 +42,7 @@
             <input type="text" id="actor3" name="actor3"><br><br> 
             
             <label for="director">Director</label>
-            <input type="text" id="director" name="director">
+            <input type="text" id="director" name="director"><br><br>
 
             <input type="submit" value="Add Movie"></input>  
             
