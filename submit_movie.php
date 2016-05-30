@@ -28,7 +28,7 @@
         $statement2 = $db->prepare($query2); 
         $statement2->bindParam(':title', $title); 
         $statement2->bindParam(':year', $year); 
-        $statement2->bindParam(':director_id', $director_id); 
+        $statement2->bindParam(':director_id', $directorID); 
         $statement2->bindParam(':description', $description); 
         $statement2->execute(); 
         $movieID = $db->lastInsertId(); 
