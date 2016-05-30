@@ -35,36 +35,36 @@
         
         // submit actors into database.
         $query3 = 'INSERT INTO actors(name) VALUES (:name);';
-        $statement3 = $db->prepare($query);
+        $statement3 = $db->prepare($query3);
         $statement3->bindParam(':name', $actor1);
         $statement3->execute();
         $actor1_id = $db->lastInsertId();
         
         $query4 = 'INSERT INTO actors(name) VALUES (:name);';
-        $statement4 = $db->prepare($query);
+        $statement4 = $db->prepare($query4);
         $statement4->bindParam(':name', $actor2);
         $statement4->execute();
         $actor2_id = $db->lastInsertId();
         
         $query5 = 'INSERT INTO actors(name) VALUES (:name);';
-        $statement5 = $db->prepare($query);
+        $statement5 = $db->prepare($query5);
         $statement5->bindParam(':name', $actor3);
         $statement5->execute();
         $actor3_id = $db->lastInsertId();
         
         // Submit actors_ids and movie_id into the movie_actors table.
         $query6 = 'INSERT INTO movie_actors(movie_id, actor_id) VALUES(:movie_id, :actor_id);';
-        $statement6 = $db->prepare($query);
+        $statement6 = $db->prepare($query6);
         $statement6->bindParam(':movie_id', $movieID);
         $statement6->bindParam(':actor_id', $actor1_id);
         
         $query7 = 'INSERT INTO movie_actors(movie_id, actor_id) VALUES(:movie_id, :actor_id);';
-        $statement7 = $db->prepare($query);
+        $statement7 = $db->prepare($query7);
         $statement7->bindParam(':movie_id', $movieID);
         $statement7->bindParam(':actor_id', $actor2_id);
         
         $query8 = 'INSERT INTO movie_actors(movie_id, actor_id) VALUES(:movie_id, :actor_id);';
-        $statement8 = $db->prepare($query);
+        $statement8 = $db->prepare($query8);
         $statement8->bindParam(':movie_id', $movieID);
         $statement8->bindParam(':actor_id', $actor3_id);
     }
