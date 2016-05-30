@@ -48,11 +48,11 @@
         echo "Actors:<br>"; 
         
         // Get the actors for the movie
-        $statement3 = "SELECT m_a.movie_id, m_a.actor_id" 
-                . " FROM movie_actors AS m_a" 
+        $statement3 = "SELECT ma.movie_id, ma.actor_id" 
+                . " FROM movie_actors AS ma" 
                 . " INNER JOIN actors AS acts" 
-                . " ON m_a.actor_id = acts.id" 
-                . " WHERE m_a.movie_id = " . $_SESSION['movie_id'];
+                . " ON ma.actor_id = acts.id" 
+                . " WHERE ma.movie_id = " . $_SESSION['movie_id'];
         $queryActors = $db->prepare($statement3); 
         $queryActors->execute(); 
         
