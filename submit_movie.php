@@ -98,3 +98,8 @@
 
 //header("Location: add_to_database.php");
 //die();
+
+?>
+
+</body>
+</html>
